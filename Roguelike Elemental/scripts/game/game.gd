@@ -1,11 +1,14 @@
 class_name Game extends Node
 
+@onready var _fps_label: Label = get_node("Debug/ColorRect/FPS")
 @onready var _scenario: Node = get_node("Scenario")
 
 func _ready() -> void:
 	_update_scenario(preload("res://scenes/scenarios/world.tscn"))
 
 func _physics_process(_delta: float) -> void:
+	_fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+	
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
 
