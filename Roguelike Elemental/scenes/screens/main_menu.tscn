@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmflilu8mwyc7"]
+[gd_scene load_steps=5 format=3 uid="uid://cmflilu8mwyc7"]
 
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_nfcbe"]
 [ext_resource type="Theme" uid="uid://cxw0rfj3vw41s" path="res://library/theme/theme_default.tres" id="2_as670"]
 [ext_resource type="Texture2D" uid="uid://darpchbm58dfn" path="res://assets/2d/backgrounds/background.png" id="2_evnpx"]
+[ext_resource type="PackedScene" uid="uid://clh2p4v7uoqlr" path="res://scenes/gui/buttons/button_default.tscn" id="4_b0ucp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -79,29 +80,22 @@ offset_right = -50.0
 offset_bottom = 116.0
 grow_horizontal = 0
 grow_vertical = 2
+alignment = 1
 
-[node name="Play" type="Button" parent="Filter/Buttons"]
+[node name="Play" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_as670")
 text = "Play"
 
-[node name="Settings" type="Button" parent="Filter/Buttons"]
+[node name="Settings" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_as670")
 text = "Settings"
 
-[node name="Credits" type="Button" parent="Filter/Buttons"]
+[node name="Credits" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_as670")
 text = "Credits"
 
-[node name="Exit" type="Button" parent="Filter/Buttons"]
+[node name="Exit" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_as670")
 text = "Exit"
 
 [connection signal="pressed" from="Filter/Buttons/Play" to="." method="_on_play_pressed"]
