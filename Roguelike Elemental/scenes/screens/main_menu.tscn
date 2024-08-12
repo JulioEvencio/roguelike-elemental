@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmflilu8mwyc7"]
+
+[ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_nfcbe"]
+[ext_resource type="Theme" uid="uid://cxw0rfj3vw41s" path="res://library/theme/theme_default.tres" id="2_as670"]
+[ext_resource type="Texture2D" uid="uid://darpchbm58dfn" path="res://assets/2d/backgrounds/background.png" id="2_evnpx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nfcbe")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.3077
+offset_right = 12.3077
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_evnpx")
+expand_mode = 3
+
+[node name="Filter" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Title" type="Label" parent="Filter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -51.5
+offset_right = 310.0
+offset_bottom = 51.5
+grow_vertical = 2
+theme = ExtResource("2_as670")
+text = "Roguelike
+Elemental"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="Filter"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -30.0
+offset_right = 128.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme = ExtResource("2_as670")
+theme_override_font_sizes/font_size = 20
+text = "Version: 0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Filter"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -116.0
+offset_right = -50.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Filter/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_as670")
+text = "Play"
+
+[node name="Settings" type="Button" parent="Filter/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_as670")
+text = "Settings"
+
+[node name="Credits" type="Button" parent="Filter/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_as670")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="Filter/Buttons"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_as670")
+text = "Exit"
+
+[connection signal="pressed" from="Filter/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Filter/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Filter/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Filter/Buttons/Exit" to="." method="_on_exit_pressed"]
