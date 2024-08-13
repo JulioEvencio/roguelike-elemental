@@ -63,7 +63,7 @@ offset_bottom = -10.0
 grow_vertical = 0
 theme = ExtResource("2_as670")
 theme_override_font_sizes/font_size = 20
-text = "Version: 0.1"
+text = "Version: 0.0.1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -82,23 +82,23 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 1
 
-[node name="Play" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
+[node name="Start" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-text = "Play"
+text = "$_START"
 
 [node name="Settings" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-text = "Settings"
+text = "$_SETTINGS"
 
 [node name="Credits" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-text = "Credits"
+text = "$_CREDITS"
 
 [node name="Exit" parent="Filter/Buttons" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
-text = "Exit"
+text = "$_EXIT"
 
-[connection signal="pressed" from="Filter/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Filter/Buttons/Start" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Filter/Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Filter/Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Filter/Buttons/Exit" to="." method="_on_exit_pressed"]
