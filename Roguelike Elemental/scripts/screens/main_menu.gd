@@ -1,25 +1,13 @@
-class_name MainMenu extends Control
+class_name MainMenu extends Menu
 
-func _play() -> void:
-	get_tree().change_scene_to_file("res://scenes/game/game.tscn")
-
-func _settings() -> void:
-	pass
-
-func _credits() -> void:
-	pass
-
-func _exit() -> void:
-	get_tree().quit()
-
-func _on_play_pressed() -> void:
-	Transition.start(func(): _play())
+func _on_start_pressed() -> void:
+	update_scene.emit(MenuController.Types.PLAY)
 
 func _on_settings_pressed() -> void:
-	Transition.start(func(): _settings())
+	update_scene.emit(MenuController.Types.SETTINGS)
 
 func _on_credits_pressed() -> void:
-	Transition.start(func(): _credits())
+	update_scene.emit(MenuController.Types.CREDITS)
 
 func _on_exit_pressed() -> void:
-	Transition.start(func(): _exit())
+	update_scene.emit(MenuController.Types.EXIT)

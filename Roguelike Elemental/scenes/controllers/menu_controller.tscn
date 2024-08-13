@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://oyvpda1yl4xu"]
+
+[ext_resource type="Script" path="res://scripts/controllers/menu_controller.gd" id="1_kp0uq"]
+[ext_resource type="AudioStream" uid="uid://c5u1r5ylaeqqe" path="res://assets/musics/menus/menu.wav" id="2_krhvq"]
+
+[node name="MenuController" type="Node"]
+script = ExtResource("1_kp0uq")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_krhvq")
+autoplay = true
+
+[node name="Screen" type="Node" parent="."]
