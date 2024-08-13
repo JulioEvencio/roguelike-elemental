@@ -15,13 +15,13 @@ func _ready() -> void:
 	_update_screen(_main_menu_scene)
 
 func _play() -> void:
-	get_tree().change_scene_to_file(SceneController.game)
+	get_tree().change_scene_to_file(SceneController.scenario_controller)
 
 func _update_screen(screen: PackedScene) -> void:
 	for child: Menu in _screen.get_children():
 		child.queue_free()
 	
-	var screen_instantiate = screen.instantiate()
+	var screen_instantiate: Menu = screen.instantiate()
 	
 	screen_instantiate.connect("update_scene", _update_scene)
 	_screen.add_child(screen_instantiate)

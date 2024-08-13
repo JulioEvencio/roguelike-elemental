@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsit8ymkg31v"]
+
+[ext_resource type="Script" path="res://scripts/controllers/scenario_controller.gd" id="1_72je2"]
+
+[node name="ScenarioController" type="Node"]
+script = ExtResource("1_72je2")
+
+[node name="Scenario" type="Node" parent="."]
