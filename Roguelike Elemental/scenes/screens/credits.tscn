@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0ud1cj730bu6"]
+
+[ext_resource type="PackedScene" uid="uid://qgyyo1yhrxn1" path="res://scenes/screens/menu.tscn" id="1_35nng"]
+[ext_resource type="Script" path="res://scripts/screens/credits.gd" id="2_2y485"]
+[ext_resource type="PackedScene" uid="uid://bhg3mmnq8vqkc" path="res://scenes/gui/labels/title.tscn" id="3_nys3k"]
+[ext_resource type="PackedScene" uid="uid://clh2p4v7uoqlr" path="res://scenes/gui/buttons/button_default.tscn" id="4_8ypem"]
+[ext_resource type="PackedScene" uid="uid://sobqc04xgknx" path="res://scenes/gui/labels/text_default.tscn" id="4_vphh2"]
+
+[node name="Credits" instance=ExtResource("1_35nng")]
+script = ExtResource("2_2y485")
+
+[node name="Title" parent="Filter" index="0" instance=ExtResource("3_nys3k")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_right = 124.5
+grow_horizontal = 2
+text = "$_CREDITS"
+
+[node name="Text" parent="Filter" index="1" instance=ExtResource("4_vphh2")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -11.0
+offset_right = 168.0
+offset_bottom = 11.0
+grow_vertical = 2
+text = "$_CREDITS_INFO"
+
+[node name="Back" parent="Filter" index="2" instance=ExtResource("4_8ypem")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -72.0
+offset_right = 77.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "$_BACK"
+
+[connection signal="pressed" from="Filter/Back" to="." method="_on_back_pressed"]

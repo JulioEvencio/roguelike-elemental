@@ -75,7 +75,7 @@ down_arrow={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/Roguelike Elemental.en.translation", "res://translations/Roguelike Elemental.es.translation", "res://translations/Roguelike Elemental.pt.translation")
+locale/translations=PackedStringArray("res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.es.translation", "res://translations/roguelike_elemental.pt.translation")
 
 [layer_names]
 

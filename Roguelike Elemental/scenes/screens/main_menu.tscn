@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b80o2lh0edaff"]
+[gd_scene load_steps=6 format=3 uid="uid://b80o2lh0edaff"]
 
 [ext_resource type="PackedScene" uid="uid://qgyyo1yhrxn1" path="res://scenes/screens/menu.tscn" id="1_aahjl"]
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_nfcbe"]
 [ext_resource type="Theme" uid="uid://cxw0rfj3vw41s" path="res://library/theme/theme_default.tres" id="2_as670"]
 [ext_resource type="PackedScene" uid="uid://clh2p4v7uoqlr" path="res://scenes/gui/buttons/button_default.tscn" id="4_b0ucp"]
+[ext_resource type="PackedScene" uid="uid://bhg3mmnq8vqkc" path="res://scenes/gui/labels/title.tscn" id="5_cdrsv"]
 
 [node name="MainMenu" instance=ExtResource("1_aahjl")]
 script = ExtResource("1_nfcbe")
 
-[node name="Title" type="Label" parent="ColorRect" index="0"]
+[node name="Title" parent="Filter" index="0" instance=ExtResource("5_cdrsv")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -18,13 +19,10 @@ offset_top = -70.5
 offset_right = 293.0
 offset_bottom = 70.5
 grow_vertical = 2
-theme = ExtResource("2_as670")
 text = "Roguelike
 Elemental"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Version" type="Label" parent="ColorRect" index="1"]
+[node name="Version" type="Label" parent="Filter" index="1"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -38,7 +36,7 @@ theme = ExtResource("2_as670")
 theme_override_font_sizes/font_size = 20
 text = "Version 0.0.1"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Filter" index="2"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -53,23 +51,23 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 1
 
-[node name="Start" parent="ColorRect/VBoxContainer" index="0" instance=ExtResource("4_b0ucp")]
+[node name="Start" parent="Filter/VBoxContainer" index="0" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
 text = "$_START"
 
-[node name="Settings" parent="ColorRect/VBoxContainer" index="1" instance=ExtResource("4_b0ucp")]
+[node name="Settings" parent="Filter/VBoxContainer" index="1" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
 text = "$_SETTINGS"
 
-[node name="Credits" parent="ColorRect/VBoxContainer" index="2" instance=ExtResource("4_b0ucp")]
+[node name="Credits" parent="Filter/VBoxContainer" index="2" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
 text = "$_CREDITS"
 
-[node name="Exit" parent="ColorRect/VBoxContainer" index="3" instance=ExtResource("4_b0ucp")]
+[node name="Exit" parent="Filter/VBoxContainer" index="3" instance=ExtResource("4_b0ucp")]
 layout_mode = 2
 text = "$_EXIT"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Filter/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Filter/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Filter/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Filter/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sobqc04xgknx"]
+
+[ext_resource type="Theme" uid="uid://cxw0rfj3vw41s" path="res://library/theme/theme_default.tres" id="1_pyjh4"]
+
+[node name="TextDefault" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_pyjh4")
+theme_override_font_sizes/font_size = 15
+vertical_alignment = 1

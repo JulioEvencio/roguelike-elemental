@@ -6,3 +6,4 @@ const player: String = "res://scenes/actors/player/player_fire.tscn"
 const scenario: String = "res://scenes/scenarios/scenario.tscn"
 
 const main_menu: String = "res://scenes/screens/main_menu.tscn"
+const credits: String = "res://scenes/screens/credits.tscn"

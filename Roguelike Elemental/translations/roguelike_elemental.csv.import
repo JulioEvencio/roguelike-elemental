@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://x1801jb0518x"
+
+[deps]
+
+files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation"]
+
+source_file="res://translations/roguelike_elemental.csv"
+dest_files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation"]
+
+[params]
+
+compress=true
+delimiter=0
