@@ -1,7 +1,6 @@
 class_name Player extends CharacterBody2D
 
-const _SPEED: float = 130.0
-const _JUMP_VELOCITY: float = -300.0
+var status: Status = Status.new()
 
 var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -20,17 +19,17 @@ func _physics_process(_delta: float) -> void:
 func _move() -> void:
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = _JUMP_VELOCITY
+			velocity.y = status.jump_velocity
 	else:
 		velocity.y += _gravity
 	
 	var direction: float = Input.get_axis("move_left", "move_right")
 	
 	if direction:
-		velocity.x = direction * _SPEED
+		velocity.x = direction * status.speed
 		_is_flip = "" if direction == 1.0 else "_flip"
 	else:
-		velocity.x = move_toward(velocity.x, 0, _SPEED)
+		velocity.x = move_toward(velocity.x, 0, status.speed)
 	
 	move_and_slide()
 
@@ -63,3 +62,6 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 			_is_attacking = false
 		"attack_01_flip":
 			_is_attacking = false
+
+func _on_special_timer_timeout() -> void:
+	status.special_current += 1

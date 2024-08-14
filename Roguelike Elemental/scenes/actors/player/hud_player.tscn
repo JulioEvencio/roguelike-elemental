@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu73lrcw15nxk"]
+
+[ext_resource type="Script" path="res://scripts/actors/player/hud_player.gd" id="1_henvu"]
+[ext_resource type="Texture2D" uid="uid://dkgra024qhyuk" path="res://assets/2d/gui/hp_background.png" id="2_vkx0f"]
+[ext_resource type="Texture2D" uid="uid://c2cmgnmwnq3bf" path="res://assets/2d/gui/hp_bar.png" id="3_li4gf"]
+[ext_resource type="Texture2D" uid="uid://b42yt6hsbsry5" path="res://assets/2d/gui/special_background.png" id="4_k0w8d"]
+[ext_resource type="Texture2D" uid="uid://bloidmkfcf1sy" path="res://assets/2d/gui/special_bar.png" id="5_tiigh"]
+
+[node name="HUDPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_henvu")
+
+[node name="HPBackground" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 102.0
+offset_bottom = 57.0
+scale = Vector2(7, 7)
+texture = ExtResource("2_vkx0f")
+
+[node name="HPBar" type="TextureProgressBar" parent="HPBackground"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 5.0
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource("3_li4gf")
+
+[node name="SpecialBackground" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 120.0
+offset_right = 95.0
+offset_bottom = 127.0
+scale = Vector2(7, 7)
+texture = ExtResource("4_k0w8d")
+
+[node name="SpecialBar" type="TextureProgressBar" parent="SpecialBackground"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 5.0
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource("5_tiigh")
