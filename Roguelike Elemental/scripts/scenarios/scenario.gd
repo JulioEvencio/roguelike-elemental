@@ -6,10 +6,6 @@ func _ready() -> void:
 	_setup_camera()
 	_setup_player()
 
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
-		get_tree().quit()
-
 func _setup_camera() -> void:
 	var camera: Camera2D = get_node("Camera2D")
 	var camera_limit_left: Marker2D = get_node("WorldLimits/CameraLimitLeft")

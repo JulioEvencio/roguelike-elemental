@@ -26,3 +26,6 @@ Eldritch Grim (Open Game Art)"
 $_LANGUAGE,Language:,Idioma:,Idioma:
 $_MUSIC,Music: ,Música: ,Música: 
 $_SFX,SFX: ,SFX: ,SFX: 
+$_PAUSE,Pause,Pause,Pause
+$_RESUME,Resume,Retomar,Reanudar
+$_MAIN_MENU,Main Menu,Menu Principal,Menú Principal

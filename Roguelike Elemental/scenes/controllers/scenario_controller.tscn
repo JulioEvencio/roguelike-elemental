@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpsit8ymkg31v"]
+[gd_scene load_steps=3 format=3 uid="uid://cpsit8ymkg31v"]
 
 [ext_resource type="Script" path="res://scripts/controllers/scenario_controller.gd" id="1_72je2"]
+[ext_resource type="PackedScene" uid="uid://ysinj74rhda8" path="res://scenes/screens/pause.tscn" id="2_8hsec"]
 
 [node name="ScenarioController" type="Node"]
+process_mode = 3
 script = ExtResource("1_72je2")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="HUD" instance=ExtResource("2_8hsec")]
+visible = false
+
 [node name="Scenario" type="Node" parent="."]
+process_mode = 1
+
+[connection signal="exit" from="HUD/Pause" to="." method="_on_pause_exit"]
+[connection signal="main_menu" from="HUD/Pause" to="." method="_on_pause_main_menu"]
+[connection signal="resume" from="HUD/Pause" to="." method="_on_pause_resume"]

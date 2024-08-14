@@ -1,5 +1,6 @@
 class_name SceneController extends RefCounted
 
+const menu_controller: String = "res://scenes/controllers/menu_controller.tscn"
 const scenario_controller: String = "res://scenes/controllers/scenario_controller.tscn"
 
 const player: String = "res://scenes/actors/player/player_fire.tscn"

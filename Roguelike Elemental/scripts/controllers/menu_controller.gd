@@ -19,7 +19,7 @@ func _ready() -> void:
 	Settings.update_music_volume()
 	Settings.update_sfx_volume()
 
-func _play() -> void:
+func _change_scene_to_scenario_controller() -> void:
 	get_tree().change_scene_to_file(SceneController.scenario_controller)
 
 func _update_screen(screen: PackedScene) -> void:
@@ -37,7 +37,7 @@ func _exit() -> void:
 func _update_scene(type: MenuController.Types) -> void:
 	match type:
 		MenuController.Types.PLAY:
-			Transition.start(func(): _play())
+			Transition.start(func(): _change_scene_to_scenario_controller())
 		MenuController.Types.MAIN_MENU:
 			Transition.start(func(): _update_screen(_main_menu_scene))
 		MenuController.Types.SETTINGS:
