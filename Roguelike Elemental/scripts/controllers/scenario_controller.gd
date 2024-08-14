@@ -7,11 +7,11 @@ var _player: Player = preload(SceneController.player).instantiate()
 @onready var _scenario_scene: PackedScene = preload(SceneController.scenario)
 
 func _ready() -> void:
-	_update_scenario(_scenario_scene)
-	
 	var hud_player: HUDPlayer = get_node("HUD/HUDPlayer")
 	
 	hud_player.add_status(_player.status)
+	
+	_update_scenario(_scenario_scene)
 
 func _physics_process(_delta: float) -> void:
 	_toggle_pause()
