@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://qgyyo1yhrxn1" path="res://scenes/screens/menu.tscn" id="1_aahjl"]
 [ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_nfcbe"]
-[ext_resource type="Theme" uid="uid://cxw0rfj3vw41s" path="res://library/theme/theme_default.tres" id="2_as670"]
-[ext_resource type="PackedScene" uid="uid://clh2p4v7uoqlr" path="res://scenes/gui/buttons/button_default.tscn" id="4_b0ucp"]
-[ext_resource type="PackedScene" uid="uid://bhg3mmnq8vqkc" path="res://scenes/gui/labels/title.tscn" id="5_cdrsv"]
+[ext_resource type="PackedScene" uid="uid://b6rwglmsb83n0" path="res://scenes/gui/default/label_default.tscn" id="4_dg0ts"]
+[ext_resource type="PackedScene" uid="uid://cfun5jfkr0e74" path="res://scenes/gui/default/button_default.tscn" id="5_fu44u"]
+[ext_resource type="PackedScene" uid="uid://tv7ha8ik8dmq" path="res://scenes/gui/default/label_title_default.tscn" id="6_seih3"]
 
 [node name="MainMenu" instance=ExtResource("1_aahjl")]
 script = ExtResource("1_nfcbe")
 
-[node name="Title" parent="Filter" index="0" instance=ExtResource("5_cdrsv")]
+[node name="Title" parent="Filter" index="0" instance=ExtResource("6_seih3")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -21,18 +21,16 @@ grow_horizontal = 2
 text = "Roguelike
 Elemental"
 
-[node name="Version" type="Label" parent="Filter" index="1"]
+[node name="Version" parent="Filter" index="1" instance=ExtResource("4_dg0ts")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -105.0
-offset_right = 295.0
-offset_bottom = -50.0
+offset_left = 20.0
+offset_top = -89.0
+offset_right = 331.0
+offset_bottom = -20.0
 grow_vertical = 0
-theme = ExtResource("2_as670")
-theme_override_font_sizes/font_size = 40
 text = "Version 0.0.1"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Filter" index="2"]
@@ -43,27 +41,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -189.0
-offset_top = -123.0
+offset_top = -173.0
 offset_right = 189.0
-offset_bottom = 423.0
+offset_bottom = 373.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Start" parent="Filter/VBoxContainer" index="0" instance=ExtResource("4_b0ucp")]
+[node name="Start" parent="Filter/VBoxContainer" index="0" instance=ExtResource("5_fu44u")]
 layout_mode = 2
 text = "$_START"
 
-[node name="Settings" parent="Filter/VBoxContainer" index="1" instance=ExtResource("4_b0ucp")]
+[node name="Settings" parent="Filter/VBoxContainer" index="1" instance=ExtResource("5_fu44u")]
 layout_mode = 2
 text = "$_SETTINGS"
 
-[node name="Credits" parent="Filter/VBoxContainer" index="2" instance=ExtResource("4_b0ucp")]
+[node name="Credits" parent="Filter/VBoxContainer" index="2" instance=ExtResource("5_fu44u")]
 layout_mode = 2
 text = "$_CREDITS"
 
-[node name="Exit" parent="Filter/VBoxContainer" index="3" instance=ExtResource("4_b0ucp")]
+[node name="Exit" parent="Filter/VBoxContainer" index="3" instance=ExtResource("5_fu44u")]
 layout_mode = 2
 text = "$_EXIT"
 

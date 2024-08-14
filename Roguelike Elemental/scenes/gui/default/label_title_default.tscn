@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tv7ha8ik8dmq"]
+
+[ext_resource type="Theme" uid="uid://dqcowcb6by0n7" path="res://library/themes/default.tres" id="1_8fq0c"]
+
+[node name="LabelTitleDefault" type="Label"]
+offset_right = 1.0
+offset_bottom = 171.0
+theme = ExtResource("1_8fq0c")
+theme_override_font_sizes/font_size = 125
+horizontal_alignment = 1
+vertical_alignment = 1
