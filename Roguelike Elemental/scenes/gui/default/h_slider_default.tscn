@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgntwablsv5vx"]
+
+[ext_resource type="Theme" uid="uid://dqcowcb6by0n7" path="res://library/themes/default.tres" id="1_lfgyy"]
+
+[node name="HSliderDefault" type="HSlider"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 16.0
+theme = ExtResource("1_lfgyy")

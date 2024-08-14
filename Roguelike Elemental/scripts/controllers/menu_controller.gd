@@ -11,9 +11,13 @@ enum Types {
 @onready var _screen: Node = get_node("Screen")
 @onready var _main_menu_scene: PackedScene = preload(SceneController.main_menu)
 @onready var _credits_scene: PackedScene = preload(SceneController.credits)
+@onready var _settings_scene: PackedScene = preload(SceneController.settings)
 
 func _ready() -> void:
 	_update_screen(_main_menu_scene)
+	
+	Settings.update_music_volume()
+	Settings.update_sfx_volume()
 
 func _play() -> void:
 	get_tree().change_scene_to_file(SceneController.scenario_controller)
@@ -37,7 +41,7 @@ func _update_scene(type: MenuController.Types) -> void:
 		MenuController.Types.MAIN_MENU:
 			Transition.start(func(): _update_screen(_main_menu_scene))
 		MenuController.Types.SETTINGS:
-			Transition.start(func(): _update_screen(null))
+			Transition.start(func(): _update_screen(_settings_scene))
 		MenuController.Types.CREDITS:
 			Transition.start(func(): _update_screen(_credits_scene))
 		MenuController.Types.EXIT:

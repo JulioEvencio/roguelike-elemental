@@ -1,7 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://b084xyx7upmr"]
+[gd_scene load_steps=8 format=3 uid="uid://b084xyx7upmr"]
 
 [ext_resource type="PackedScene" uid="uid://qgyyo1yhrxn1" path="res://scenes/screens/menu.tscn" id="1_0jy7f"]
 [ext_resource type="Script" path="res://scripts/screens/settings.gd" id="2_n22hk"]
+[ext_resource type="PackedScene" uid="uid://tv7ha8ik8dmq" path="res://scenes/gui/default/label_title_default.tscn" id="3_aj8wf"]
+[ext_resource type="PackedScene" uid="uid://b6rwglmsb83n0" path="res://scenes/gui/default/label_default.tscn" id="4_5pns3"]
+[ext_resource type="PackedScene" uid="uid://cfun5jfkr0e74" path="res://scenes/gui/default/button_default.tscn" id="4_p2tk6"]
+[ext_resource type="PackedScene" uid="uid://h2fdhag5x7yk" path="res://scenes/gui/default/option_button_default.tscn" id="5_wktnt"]
+[ext_resource type="PackedScene" uid="uid://bgntwablsv5vx" path="res://scenes/gui/default/h_slider_default.tscn" id="6_tjwob"]
 
 [node name="Settings" instance=ExtResource("1_0jy7f")]
 script = ExtResource("2_n22hk")
+
+[node name="Title" parent="Filter" index="0" instance=ExtResource("3_aj8wf")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.0
+offset_right = 351.0
+grow_horizontal = 2
+text = "$_SETTINGS"
+
+[node name="ConfigContainer" type="VBoxContainer" parent="Filter" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -127.5
+offset_right = 159.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Language" parent="Filter/ConfigContainer" index="0" instance=ExtResource("4_5pns3")]
+layout_mode = 2
+text = "$_LANGUAGE"
+
+[node name="LanguageButton" parent="Filter/ConfigContainer" index="1" instance=ExtResource("5_wktnt")]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Português"
+popup/item_1/id = 1
+popup/item_2/text = "Español"
+popup/item_2/id = 2
+
+[node name="MusicContainer" type="HBoxContainer" parent="Filter/ConfigContainer" index="2"]
+layout_mode = 2
+
+[node name="Music" parent="Filter/ConfigContainer/MusicContainer" index="0" instance=ExtResource("4_5pns3")]
+layout_mode = 2
+text = "$_MUSIC"
+
+[node name="MusicValue" parent="Filter/ConfigContainer/MusicContainer" index="1" instance=ExtResource("4_5pns3")]
+layout_mode = 2
+text = "50%"
+
+[node name="MusicVolume" parent="Filter/ConfigContainer" index="3" instance=ExtResource("6_tjwob")]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="SFXContainer2" type="HBoxContainer" parent="Filter/ConfigContainer" index="4"]
+layout_mode = 2
+
+[node name="SFX" parent="Filter/ConfigContainer/SFXContainer2" index="0" instance=ExtResource("4_5pns3")]
+layout_mode = 2
+text = "$_SFX"
+
+[node name="SFXValue" parent="Filter/ConfigContainer/SFXContainer2" index="1" instance=ExtResource("4_5pns3")]
+layout_mode = 2
+text = "50%"
+
+[node name="SFXVolume" parent="Filter/ConfigContainer" index="5" instance=ExtResource("6_tjwob")]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Back" parent="Filter" index="2" instance=ExtResource("4_p2tk6")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -119.0
+offset_right = 140.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "$_BACK"
+
+[connection signal="item_selected" from="Filter/ConfigContainer/LanguageButton" to="." method="_on_language_button_item_selected"]
+[connection signal="value_changed" from="Filter/ConfigContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Filter/ConfigContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="pressed" from="Filter/Back" to="." method="_on_back_pressed"]

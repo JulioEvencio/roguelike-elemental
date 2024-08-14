@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://h2fdhag5x7yk"]
+
+[ext_resource type="Theme" uid="uid://dqcowcb6by0n7" path="res://library/themes/default.tres" id="1_ypkyx"]
+
+[node name="OptionButtonDefault" type="OptionButton"]
+offset_right = 45.0
+offset_bottom = 20.0
+focus_mode = 0
+theme = ExtResource("1_ypkyx")
