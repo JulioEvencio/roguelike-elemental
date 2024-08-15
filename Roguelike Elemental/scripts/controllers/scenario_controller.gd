@@ -31,6 +31,7 @@ func _update_scenario(scenario: PackedScene) -> void:
 	_scenario.add_child(scenario_instantiate)
 
 func _change_scene_to_menu_controller() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file(SceneController.menu_controller)
 
 func _exit() -> void:

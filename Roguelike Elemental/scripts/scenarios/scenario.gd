@@ -7,13 +7,13 @@ var _player: Player
 func _ready() -> void:
 	_setup_camera()
 	_setup_player()
-	call_deferred("_setup_enemies")
 
 func add_player(player: Player) -> void:
 	_player = player
 
 func _setup_camera() -> void:
 	var camera: Camera2D = get_node("Camera2D")
+	
 	var camera_limit_left: Marker2D = get_node("WorldLimits/CameraLimitLeft")
 	var camera_limit_right: Marker2D = get_node("WorldLimits/CameraLimitRight")
 	var camera_limit_top: Marker2D = get_node("WorldLimits/CameraLimitTop")
@@ -39,3 +39,6 @@ func _setup_enemies() -> void:
 	bat_instantiate.add_player(_player)
 	
 	add_child(bat_instantiate)
+
+func _on_setup_timer_timeout() -> void:
+	_setup_enemies()

@@ -9,6 +9,7 @@ enum Types {
 }
 
 @onready var _screen: Node = get_node("Screen")
+
 @onready var _main_menu_scene: PackedScene = preload(SceneController.main_menu)
 @onready var _credits_scene: PackedScene = preload(SceneController.credits)
 @onready var _settings_scene: PackedScene = preload(SceneController.settings)
