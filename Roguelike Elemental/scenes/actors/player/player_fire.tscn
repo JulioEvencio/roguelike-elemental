@@ -588,6 +588,7 @@ radius = 5.0
 height = 42.0
 
 [node name="PlayerFire" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(0, -63)
 collision_mask = 2
 script = ExtResource("1_se32g")

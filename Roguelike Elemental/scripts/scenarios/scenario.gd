@@ -25,14 +25,14 @@ func _setup_camera() -> void:
 	camera.limit_bottom = int(camera_limit_bottom.position.y)
 
 func _setup_player() -> void:
-	var player_spwan: Marker2D = get_node("PlayerSpwan")
+	var player_spwan: Marker2D = get_node("Spwan/PlayerSpwan")
 	
 	_player.position = player_spwan.position
 	
 	add_child(_player)
 
 func _setup_enemies() -> void:
-	var bat_spwan: Marker2D = get_node("BatSpwan")
+	var bat_spwan: Marker2D = get_node("Spwan/BatSpwan")
 	var bat_instantiate: Bat = _bat_scene.instantiate()
 	
 	bat_instantiate.position = bat_spwan.position
