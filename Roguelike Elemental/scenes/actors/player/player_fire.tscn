@@ -618,5 +618,8 @@ polygon = PackedVector2Array(-28, -5, -4, -20, 28, -19, 52, -4, 64, 17, 67, 39, 
 [node name="SpecialTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="Heart" type="Marker2D" parent="."]
+position = Vector2(0, 34)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="SpecialTimer" to="." method="_on_special_timer_timeout"]

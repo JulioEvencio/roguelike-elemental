@@ -2,9 +2,15 @@ class_name Scenario extends Node2D
 
 var _player: Player
 
+@onready var _bat_scene: PackedScene = preload(SceneController.bat)
+
 func _ready() -> void:
 	_setup_camera()
 	_setup_player()
+	call_deferred("_setup_enemies")
+
+func add_player(player: Player) -> void:
+	_player = player
 
 func _setup_camera() -> void:
 	var camera: Camera2D = get_node("Camera2D")
@@ -25,5 +31,11 @@ func _setup_player() -> void:
 	
 	add_child(_player)
 
-func add_player(player: Player) -> void:
-	_player = player
+func _setup_enemies() -> void:
+	var bat_spwan: Marker2D = get_node("BatSpwan")
+	var bat_instantiate: Bat = _bat_scene.instantiate()
+	
+	bat_instantiate.position = bat_spwan.position
+	bat_instantiate.add_player(_player)
+	
+	add_child(bat_instantiate)

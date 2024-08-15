@@ -8,6 +8,7 @@ var _is_attacking: bool = false
 var _is_flip: String = ""
 
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
+@onready var _heart: Marker2D = get_node("Heart")
 
 func _physics_process(_delta: float) -> void:
 	if not _is_attacking:
@@ -15,6 +16,12 @@ func _physics_process(_delta: float) -> void:
 		_attack()
 	
 	_animate()
+
+func get_heart() -> Marker2D:
+	return _heart
+
+func take_damage(damage: int) -> void:
+	status.hp_current -= damage
 
 func _move() -> void:
 	if is_on_floor():

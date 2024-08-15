@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hxm1cqxubtgd"]
+[gd_scene load_steps=7 format=3 uid="uid://hxm1cqxubtgd"]
 
 [ext_resource type="Script" path="res://scripts/scenarios/scenario.gd" id="1_cnu44"]
 [ext_resource type="Texture2D" uid="uid://darpchbm58dfn" path="res://assets/2d/backgrounds/background.png" id="2_vfj3p"]
@@ -7,6 +7,12 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cuxb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hrg1m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fdhj1"]
+vertices = PackedVector2Array(702, 382, -62, 382, -62, -22, 702, -22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-72, -32, 712, -32, 712, 392, -72, 392)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Scenario" type="Node2D"]
 script = ExtResource("1_cnu44")
@@ -61,3 +67,9 @@ layer_1/tile_data = PackedInt32Array(1179648, 327680, 1, 1245184, 327680, 2, 131
 
 [node name="PlayerSpwan" type="Marker2D" parent="."]
 position = Vector2(48, 248)
+
+[node name="BatSpwan" type="Marker2D" parent="."]
+position = Vector2(355, 131)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fdhj1")
