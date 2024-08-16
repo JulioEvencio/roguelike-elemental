@@ -71,6 +71,10 @@ func _animate() -> void:
 func _hit_logic() -> void:
 	if _hp < 1:
 		_is_dead = true
+		
+		# disable collision layer 3 - mode binary
+		# collision layers and masks: https://docs.godotengine.org/en/stable/tutorials/physics/physics_introduction.html
+		collision_layer &= ~0b0100
 	
 	_is_hit = false
 
