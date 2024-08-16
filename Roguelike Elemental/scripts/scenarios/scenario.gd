@@ -45,6 +45,6 @@ func _setup_enemies() -> void:
 			enemy_instantiate.position = Vector2(700, 200 + -35 * i)
 		else:
 			enemy_instantiate.position = Vector2(-50, 200 + -35 * i)
-		enemy_instantiate.add_player(_player)
 		
+		enemy_instantiate.add_player(_player)
 		_enemies.add_child(enemy_instantiate)

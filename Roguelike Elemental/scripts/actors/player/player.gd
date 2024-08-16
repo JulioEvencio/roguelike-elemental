@@ -72,3 +72,6 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 func _on_special_timer_timeout() -> void:
 	status.special_current += 1
+
+func _on_attack_area_body_entered(enemy: Enemy) -> void:
+	enemy.take_damage(status.damage)
