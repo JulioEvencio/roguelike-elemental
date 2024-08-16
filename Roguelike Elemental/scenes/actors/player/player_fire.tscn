@@ -590,7 +590,7 @@ height = 42.0
 [node name="PlayerFire" type="CharacterBody2D"]
 z_index = 1
 position = Vector2(0, -63)
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_se32g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -15,7 +15,7 @@ script = ExtResource("1_cnu44")
 [node name="WorldLimits" type="Node" parent="."]
 
 [node name="WorldLimitLeft" type="StaticBody2D" parent="WorldLimits"]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/WorldLimitLeft"]
@@ -24,7 +24,7 @@ shape = SubResource("WorldBoundaryShape2D_5cuxb")
 
 [node name="WorldLimitRight" type="StaticBody2D" parent="WorldLimits"]
 position = Vector2(640, 0)
-collision_layer = 2
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/WorldLimitRight"]
