@@ -1,9 +1,11 @@
 class_name Scenario extends Node2D
 
-var _waves: int = 1
+var _waves_current: int = 1
+var _amount_enemies_current: int = 0
 
 var _player: Player
 
+@onready var _waves_info: Label = get_node("HUD/WavesInfo")
 @onready var _enemies: Node = get_node("Enemies")
 @onready var _skeleton_scene: PackedScene = preload(SceneController.skeleton)
 
@@ -35,8 +37,18 @@ func _setup_player() -> void:
 	
 	add_child(_player)
 
+func _waves_logic() -> void:
+	_amount_enemies_current -= 1
+	
+	if _amount_enemies_current < 1:
+		_waves_current += 1
+		_setup_enemies()
+	
+	_waves_info.text = "Waves: " + str(_waves_current)
+
 func _setup_enemies() -> void:
-	var enemy_number: int = randi_range(_waves, _waves + 5)
+	var enemy_number: int = randi_range(_waves_current, _waves_current + 5)
+	_amount_enemies_current = 0
 	
 	for i: int in enemy_number:
 		var enemy_instantiate: Enemy = _skeleton_scene.instantiate()
@@ -47,4 +59,7 @@ func _setup_enemies() -> void:
 			enemy_instantiate.position = Vector2(-50, 200 + -35 * i)
 		
 		enemy_instantiate.add_player(_player)
+		enemy_instantiate.connect("is_dead", _waves_logic)
+		
 		_enemies.add_child(enemy_instantiate)
+		_amount_enemies_current += 1
