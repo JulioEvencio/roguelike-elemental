@@ -1,12 +1,16 @@
 class_name Scenario extends Node2D
 
+var _waves: int = 1
+
 var _player: Player
 
-@onready var _bat_scene: PackedScene = preload(SceneController.bat)
+@onready var _enemies: Node = get_node("Enemies")
+@onready var _skeleton_scene: PackedScene = preload(SceneController.skeleton)
 
 func _ready() -> void:
 	_setup_camera()
 	_setup_player()
+	_setup_enemies()
 
 func add_player(player: Player) -> void:
 	_player = player
@@ -25,20 +29,22 @@ func _setup_camera() -> void:
 	camera.limit_bottom = int(camera_limit_bottom.position.y)
 
 func _setup_player() -> void:
-	var player_spwan: Marker2D = get_node("Spwan/PlayerSpwan")
+	var player_spwan: Marker2D = get_node("PlayerSpwan")
 	
 	_player.position = player_spwan.position
 	
 	add_child(_player)
 
 func _setup_enemies() -> void:
-	var bat_spwan: Marker2D = get_node("Spwan/BatSpwan")
-	var bat_instantiate: Bat = _bat_scene.instantiate()
+	var enemy_number: int = randi_range(_waves, _waves + 5)
 	
-	bat_instantiate.position = bat_spwan.position
-	bat_instantiate.add_player(_player)
-	
-	add_child(bat_instantiate)
-
-func _on_setup_timer_timeout() -> void:
-	_setup_enemies()
+	for i: int in enemy_number:
+		var enemy_instantiate: Enemy = _skeleton_scene.instantiate()
+		
+		if i % 2 == 0:
+			enemy_instantiate.position = Vector2(700, 200 + -35 * i)
+		else:
+			enemy_instantiate.position = Vector2(-50, 200 + -35 * i)
+		enemy_instantiate.add_player(_player)
+		
+		_enemies.add_child(enemy_instantiate)

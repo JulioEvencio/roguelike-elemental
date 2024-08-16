@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://hxm1cqxubtgd"]
+[gd_scene load_steps=7 format=4 uid="uid://hxm1cqxubtgd"]
 
 [ext_resource type="Script" path="res://scripts/scenarios/scenario.gd" id="1_cnu44"]
 [ext_resource type="Texture2D" uid="uid://darpchbm58dfn" path="res://assets/2d/backgrounds/background.png" id="2_vfj3p"]
@@ -8,12 +8,6 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5cuxb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hrg1m"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_fdhj1"]
-vertices = PackedVector2Array(702, 382, -62, 382, -62, -22, 702, -22)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-72, -32, 712, -32, 712, 392, -72, 392)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Scenario" type="Node2D"]
 script = ExtResource("1_cnu44")
@@ -35,6 +29,14 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/WorldLimitRight"]
 rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_hrg1m")
+
+[node name="WorldLimitBottom" type="StaticBody2D" parent="WorldLimits"]
+position = Vector2(0, 288)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldLimits/WorldLimitBottom"]
 shape = SubResource("WorldBoundaryShape2D_hrg1m")
 
 [node name="CameraLimitLeft" type="Marker2D" parent="WorldLimits"]
@@ -71,19 +73,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAA=")
 [node name="Tiles" parent="TileMap" instance=ExtResource("5_1nljr")]
 tile_map_data = PackedByteArray("AAD//wgAAAACAAAAAAD//wkAAAACAAEAAAD//woAAAACAAIAAAD+/wgAAAACAAAAAAD+/wkAAAACAAEAAAD+/woAAAACAAIAAAD+/wsAAAACAAMAAAD//wsAAAACAAMAAAAAAAgAAAACAAAAAAAAAAkAAAACAAEAAAAAAAoAAAACAAIAAAAAAAsAAAACAAMAAAABAAgAAAACAAAAAAABAAkAAAACAAEAAAABAAoAAAACAAIAAAABAAsAAAACAAMAAAACAAgAAAACAAAAAAACAAkAAAACAAEAAAACAAoAAAACAAIAAAACAAsAAAACAAMAAAADAAgAAAACAAAAAAADAAkAAAACAAEAAAADAAoAAAACAAIAAAADAAsAAAACAAMAAAAEAAgAAAACAAAAAAAEAAkAAAACAAEAAAAEAAoAAAACAAIAAAAEAAsAAAACAAMAAAAFAAgAAAACAAAAAAAFAAkAAAACAAEAAAAFAAoAAAACAAIAAAAFAAsAAAACAAMAAAAGAAgAAAACAAAAAAAGAAkAAAACAAEAAAAGAAoAAAACAAIAAAAGAAsAAAACAAMAAAAHAAgAAAACAAAAAAAHAAkAAAACAAEAAAAHAAoAAAACAAIAAAAHAAsAAAACAAMAAAAIAAgAAAACAAAAAAAIAAkAAAACAAEAAAAIAAoAAAACAAIAAAAIAAsAAAACAAMAAAAJAAgAAAACAAAAAAAJAAkAAAACAAEAAAAJAAoAAAACAAIAAAAJAAsAAAACAAMAAAAKAAgAAAACAAAAAAAKAAkAAAACAAEAAAAKAAoAAAACAAIAAAAKAAsAAAACAAMAAAALAAgAAAACAAAAAAALAAkAAAACAAEAAAALAAoAAAACAAIAAAALAAsAAAACAAMAAAAMAAgAAAACAAAAAAAMAAkAAAACAAEAAAAMAAoAAAACAAIAAAAMAAsAAAACAAMAAAANAAgAAAACAAAAAAANAAkAAAACAAEAAAANAAoAAAACAAIAAAANAAsAAAACAAMAAAAOAAgAAAACAAAAAAAOAAkAAAACAAEAAAAOAAoAAAACAAIAAAAOAAsAAAACAAMAAAAPAAgAAAACAAAAAAAPAAkAAAACAAEAAAAPAAoAAAACAAIAAAAPAAsAAAACAAMAAAAQAAgAAAACAAAAAAAQAAkAAAACAAEAAAAQAAoAAAACAAIAAAAQAAsAAAACAAMAAAARAAgAAAACAAAAAAARAAkAAAACAAEAAAARAAoAAAACAAIAAAARAAsAAAACAAMAAAASAAgAAAACAAAAAAASAAkAAAACAAEAAAASAAoAAAACAAIAAAASAAsAAAACAAMAAAATAAgAAAACAAAAAAATAAkAAAACAAEAAAATAAoAAAACAAIAAAATAAsAAAACAAMAAAAUAAgAAAACAAAAAAAUAAkAAAACAAEAAAAUAAoAAAACAAIAAAAUAAsAAAACAAMAAAAVAAgAAAACAAAAAAAVAAkAAAACAAEAAAAVAAoAAAACAAIAAAAVAAsAAAACAAMAAAA=")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_fdhj1")
+[node name="Enemies" type="Node" parent="."]
 
-[node name="Spwan" type="Node" parent="."]
-
-[node name="SetupEnemies" type="Timer" parent="Spwan"]
-one_shot = true
-autostart = true
-
-[node name="PlayerSpwan" type="Marker2D" parent="Spwan"]
-position = Vector2(48, 240)
-
-[node name="BatSpwan" type="Marker2D" parent="Spwan"]
-position = Vector2(355, 131)
-
-[connection signal="timeout" from="Spwan/SetupEnemies" to="." method="_on_setup_timer_timeout"]
+[node name="PlayerSpwan" type="Marker2D" parent="."]
+position = Vector2(316, 240)

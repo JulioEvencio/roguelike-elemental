@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b274ja3kyfopr"]
+
+[ext_resource type="Script" path="res://scripts/actors/enemies/enemy.gd" id="1_e265b"]
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_e265b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+disabled = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

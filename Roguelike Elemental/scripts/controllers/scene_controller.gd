@@ -10,4 +10,5 @@ const main_menu: String = "res://scenes/screens/main_menu.tscn"
 const credits: String = "res://scenes/screens/credits.tscn"
 const settings: String = "res://scenes/screens/settings.tscn"
 
-const bat: String = "res://scenes/actors/enemies/bat.tscn"
+const enemy: String = "res://scenes/actors/enemies/enemy.tscn"
+const skeleton: String = "res://scenes/actors/enemies/skeleton.tscn"
