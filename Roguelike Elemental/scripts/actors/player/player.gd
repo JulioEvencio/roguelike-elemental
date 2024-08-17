@@ -59,19 +59,13 @@ func _animate() -> void:
 		else:
 			_animation.play("jump" + _is_flip)
 
-func _on_animation_player_animation_finished(anim_name: String) -> void:
-	match anim_name:
-		"attack_jump":
-			_is_attacking = false
-		"attack_jump_flip":
-			_is_attacking = false
-		"attack_01":
-			_is_attacking = false
-		"attack_01_flip":
-			_is_attacking = false
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "attack_jump" or anim_name == "attack_jump_flip" or anim_name == "attack_01" or anim_name == "attack_01_flip":
+		_is_attacking = false
 
 func _on_special_timer_timeout() -> void:
 	status.special_current += 1
 
 func _on_attack_area_body_entered(enemy: Enemy) -> void:
+	print("AAAAAAAAAAAAA")
 	enemy.take_damage(status.damage)

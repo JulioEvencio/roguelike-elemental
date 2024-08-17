@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://clxc7fv5812du"]
+
+[ext_resource type="Script" path="res://scripts/actors/player/player.gd" id="1_ok5b5"]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 10
+script = ExtResource("1_ok5b5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea"]
+
+[node name="SpecialTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Heart" type="Marker2D" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="SpecialTimer" to="." method="_on_special_timer_timeout"]
