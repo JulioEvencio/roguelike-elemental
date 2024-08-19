@@ -4,6 +4,7 @@ var status: Status = Status.new()
 
 var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var _attack_type: String = "attack_01"
 var _is_attacking: bool = false
 var _is_flip: String = ""
 
@@ -42,12 +43,30 @@ func _move() -> void:
 
 func _attack() -> void:
 	if Input.is_action_just_pressed("attack"):
+		var up_arrow: bool = false
+		var down_arrow: bool = false
+		
+		if Input.is_action_pressed("up_arrow"):
+			up_arrow = true
+		
+		if Input.is_action_pressed("down_arrow"):
+			down_arrow = true
+		
+		if up_arrow and down_arrow:
+			_attack_type = "attack_special"
+		elif up_arrow:
+			_attack_type = "attack_03"
+		elif down_arrow:
+			_attack_type = "attack_02"
+		else:
+			_attack_type = "attack_01"
+		
 		_is_attacking = true
 
 func _animate() -> void:
 	if _is_attacking:
 		if is_on_floor():
-			_animation.play("attack_01" + _is_flip)
+			_animation.play(_attack_type + _is_flip)
 		else:
 			_animation.play("attack_jump" + _is_flip)
 	else:
@@ -60,7 +79,7 @@ func _animate() -> void:
 			_animation.play("jump" + _is_flip)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack_jump" or anim_name == "attack_jump_flip" or anim_name == "attack_01" or anim_name == "attack_01_flip":
+	if anim_name == "attack_jump" or anim_name == "attack_jump_flip" or anim_name == _attack_type or anim_name == _attack_type + "_flip":
 		_is_attacking = false
 
 func _on_special_timer_timeout() -> void:
