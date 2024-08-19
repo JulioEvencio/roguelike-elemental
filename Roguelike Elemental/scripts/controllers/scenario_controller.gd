@@ -1,6 +1,6 @@
 class_name ScenarioController extends Node
 
-var _player: Player = preload(SceneController.player).instantiate()
+var _player: Player = preload(SceneController.player_wind).instantiate()
 
 @onready var _pause_screen: Pause = get_node("HUD/Pause")
 @onready var _scenario: Node = get_node("Scenario")
