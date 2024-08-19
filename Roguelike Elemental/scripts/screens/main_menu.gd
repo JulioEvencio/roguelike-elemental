@@ -1,5 +1,7 @@
 class_name MainMenu extends Menu
 
+signal update_scene
+
 func _on_start_pressed() -> void:
 	update_scene.emit(MenuController.Types.PLAY)
 

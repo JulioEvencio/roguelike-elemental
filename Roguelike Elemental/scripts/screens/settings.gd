@@ -1,5 +1,7 @@
 class_name Settings extends Menu
 
+signal update_scene
+
 static var _music_value: float = 0.5
 static var _sfx_value: float = 0.5
 
