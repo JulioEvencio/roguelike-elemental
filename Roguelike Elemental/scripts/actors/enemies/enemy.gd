@@ -30,10 +30,11 @@ func add_player(player: Player) -> void:
 	_player = player
 
 func take_damage(damage: int) -> void:
-	if not _is_dead and not _is_hit:
+	if not _is_dead:
 		_hp -= damage
 		_is_hit = true
 		_is_attacking = false
+		_animation.call_deferred("stop")
 
 func _attack() -> void:
 	if _raycast.is_colliding():
