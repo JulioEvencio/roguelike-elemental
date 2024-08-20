@@ -35,7 +35,7 @@ anchor_right = 0.5
 offset_left = -384.0
 offset_right = 384.0
 grow_horizontal = 2
-text = "Select Player"
+text = "$_CHOOSE_CHARACTER"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -260,6 +260,6 @@ offset_right = 121.5
 offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Select"
+text = "$_CHOOSE"
 
 [connection signal="pressed" from="ButtonDefault" to="." method="_on_button_default_pressed"]
