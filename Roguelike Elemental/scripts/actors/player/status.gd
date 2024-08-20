@@ -38,7 +38,7 @@ var critical_damage: int = 10
 var critical_chance: int = 0
 var reflect_damage: int = 0
 var dodge_the_attack: int = 0
-var immunity: int = 1
+var immunity: float = 1.0
 
 var passive_defense: bool = false
 var passive_immunity: bool = false

@@ -7,12 +7,16 @@ var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _attack_type: String = "attack_01"
 var _is_attacking: bool = false
 var _is_flip: String = ""
+var _is_hit: bool = false
+var _is_immune: bool = false
 
+@onready var _sprite: Sprite2D = get_node("Sprite2D")
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
 @onready var _heart: Marker2D = get_node("Heart")
+@onready var _immune_timer: Timer = get_node("ImmuneTimer")
 
 func _physics_process(_delta: float) -> void:
-	if not _is_attacking:
+	if not _is_attacking and not _is_hit:
 		_move()
 		_attack()
 	
@@ -22,7 +26,11 @@ func get_heart() -> Marker2D:
 	return _heart
 
 func take_damage(damage: int) -> void:
-	status.hp_current -= damage
+	if not _is_hit and not _is_immune:
+		status.hp_current -= damage
+		
+		_is_attacking = false
+		_is_hit = true
 
 func _move() -> void:
 	if is_on_floor():
@@ -64,7 +72,9 @@ func _attack() -> void:
 		_is_attacking = true
 
 func _animate() -> void:
-	if _is_attacking:
+	if _is_hit:
+		_animation.play("hit" + _is_flip)
+	elif _is_attacking:
 		if is_on_floor():
 			_animation.play(_attack_type + _is_flip)
 		else:
@@ -81,9 +91,19 @@ func _animate() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack_jump" or anim_name == "attack_jump_flip" or anim_name == _attack_type or anim_name == _attack_type + "_flip":
 		_is_attacking = false
+	elif anim_name == "hit" or anim_name == "hit_flip":
+		_is_immune = true
+		_is_hit = false
+		_sprite.modulate.a = 0.5
+		_immune_timer.wait_time = status.immunity
+		_immune_timer.start()
 
 func _on_special_timer_timeout() -> void:
 	status.special_current += 1
 
 func _on_attack_area_body_entered(enemy: Enemy) -> void:
 	enemy.take_damage(status.damage)
+
+func _on_immune_timer_timeout() -> void:
+	_is_immune = false
+	_sprite.modulate.a = 1.0
