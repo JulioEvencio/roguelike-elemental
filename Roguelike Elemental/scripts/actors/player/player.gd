@@ -25,11 +25,12 @@ func _physics_process(_delta: float) -> void:
 func get_heart() -> Marker2D:
 	return _heart
 
-func take_damage(damage: int) -> void:
+func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 	if not _is_hit and not _is_immune:
-		status.hp_current -= damage
+		status.hp_current -= _enemy_damage
 		
 		_is_attacking = false
+		_is_flip = "" if position.x < _enemy_position_x else "_flip"
 		_is_hit = true
 
 func _move() -> void:

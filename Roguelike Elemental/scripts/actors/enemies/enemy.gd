@@ -92,4 +92,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		_dead_logic()
 
 func _on_attack_area_body_entered(player: Player) -> void:
-	player.take_damage(_damage)
+	player.take_damage(_damage, position.x)
