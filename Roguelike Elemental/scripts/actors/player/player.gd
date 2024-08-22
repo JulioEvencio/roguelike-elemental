@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal is_dead
+
 var status: Status = Status.new()
 
 var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -9,6 +11,7 @@ var _is_attacking: bool = false
 var _is_flip: String = ""
 var _is_hit: bool = false
 var _is_immune: bool = false
+var _is_dead: bool = false
 
 @onready var _sprite: Sprite2D = get_node("Sprite2D")
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
@@ -73,7 +76,9 @@ func _attack() -> void:
 		_is_attacking = true
 
 func _animate() -> void:
-	if _is_hit:
+	if _is_dead:
+		_animation.play("death" + _is_flip)
+	elif _is_hit:
 		_animation.play("hit" + _is_flip)
 	elif _is_attacking:
 		if is_on_floor():
@@ -93,11 +98,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack_jump" or anim_name == "attack_jump_flip" or anim_name == _attack_type or anim_name == _attack_type + "_flip":
 		_is_attacking = false
 	elif anim_name == "hit" or anim_name == "hit_flip":
-		_is_immune = true
-		_is_hit = false
-		_sprite.modulate.a = 0.5
-		_immune_timer.wait_time = status.immunity
-		_immune_timer.start()
+		if status.hp_current <= 0:
+			_is_dead = true
+		else:
+			_is_immune = true
+			_is_hit = false
+			_sprite.modulate.a = 0.5
+			_immune_timer.wait_time = status.immunity
+			_immune_timer.start()
+	elif anim_name == "death" or anim_name == "death_flip":
+		is_dead.emit()
 
 func _on_special_timer_timeout() -> void:
 	status.special_current += 1

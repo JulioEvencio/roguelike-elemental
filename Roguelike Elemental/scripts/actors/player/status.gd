@@ -13,6 +13,12 @@ var hp_max: int = 10:
 var hp_current: int = hp_max:
 	set(value):
 		hp_current = value
+		
+		if hp_current > hp_max:
+			hp_current = hp_max
+		elif hp_current < 0:
+			hp_current = 0
+		
 		update_hp_current.emit(hp_current)
 
 var special_max: int = 60:

@@ -1,6 +1,7 @@
 class_name ScenarioController extends Node
 
 var _player: Player = null
+var _is_game_over: bool = false
 
 @onready var _pause_screen: Pause = get_node("HUD/Pause")
 @onready var _scenario: Node = get_node("Scenario")
@@ -19,7 +20,7 @@ func _setup_controller() -> void:
 	_update_scenario(_scenario_scene)
 
 func _toggle_pause() -> void:
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and not _is_game_over:
 		get_tree().paused = not get_tree().paused
 		_pause_screen.visible = get_tree().paused
 
@@ -37,7 +38,11 @@ func _change_scene_to_menu_controller() -> void:
 	get_tree().change_scene_to_file(SceneController.menu_controller)
 
 func _exit() -> void:
-	get_tree().quit()
+	get_tree().paused = true
+
+func _game_over() -> void:
+	get_tree().paused = true
+	_is_game_over = true
 
 func _on_pause_resume() -> void:
 	_pause_screen.visible = false
@@ -57,5 +62,7 @@ func _on_player_select_player_selected(player_name: String) -> void:
 			_player = load(SceneController.player_water).instantiate()
 		"Player Wind":
 			_player = load(SceneController.player_wind).instantiate()
+	
+	_player.connect("is_dead", _game_over)
 	
 	Transition.start(func(): _setup_controller())
