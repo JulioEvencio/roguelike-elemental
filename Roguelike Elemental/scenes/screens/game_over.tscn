@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjqx1lkohsg5e"]
+
+[ext_resource type="PackedScene" uid="uid://tv7ha8ik8dmq" path="res://scenes/gui/default/label_title_default.tscn" id="1_35eak"]
+[ext_resource type="Script" path="res://scripts/screens/game_over.gd" id="1_olbfd"]
+[ext_resource type="PackedScene" uid="uid://cfun5jfkr0e74" path="res://scenes/gui/default/button_default.tscn" id="2_k5whm"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_olbfd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Title" parent="ColorRect" instance=ExtResource("1_35eak")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -339.0
+offset_right = 339.0
+grow_horizontal = 2
+text = "$_GAME_OVER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -66.0
+offset_right = 50.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Restart" parent="ColorRect/VBoxContainer" instance=ExtResource("2_k5whm")]
+layout_mode = 2
+text = "$_RESTART"
+
+[node name="MainMenu" parent="ColorRect/VBoxContainer" instance=ExtResource("2_k5whm")]
+layout_mode = 2
+text = "$_MAIN_MENU"
+
+[node name="Exit" parent="ColorRect/VBoxContainer" instance=ExtResource("2_k5whm")]
+layout_mode = 2
+text = "$_EXIT"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

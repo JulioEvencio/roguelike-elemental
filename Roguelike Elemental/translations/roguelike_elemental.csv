@@ -31,3 +31,5 @@ $_RESUME,Resume,Retomar,Reanudar
 $_MAIN_MENU,Main Menu,Menu Principal,Menú Principal
 $_CHOOSE_CHARACTER,Choose the character,Escolha o personagem,Elige el personaje
 $_CHOOSE,Choose,Escolher,Elegir
+$_RESTART,Restart,Reiniciar,Reanudar
+$_GAME_OVER,Game Over,Game Over,Game Over
