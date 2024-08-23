@@ -28,6 +28,12 @@ var _player_options: Array[Dictionary] = [
 		"name": "Metalia",
 		"description": "$_MASTER_METAL",
 		"scene": SceneController.player_metal
+	},
+	{
+		"icon": SceneController.player_crystal_avatar,
+		"name": "Crystallum",
+		"description": "$_MASTER_CRYSTAL",
+		"scene": SceneController.player_crystal
 	}
 ]
 

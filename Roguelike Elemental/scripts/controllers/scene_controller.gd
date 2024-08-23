@@ -15,6 +15,9 @@ const player_wind_avatar: String = "res://assets/2d/player/player_wind_avatar.pn
 const player_metal: String = "res://scenes/actors/player/player_metal.tscn"
 const player_metal_avatar: String = "res://assets/2d/player/player_metal_avatar.png"
 
+const player_crystal: String = "res://scenes/actors/player/player_crystal.tscn"
+const player_crystal_avatar: String = "res://assets/2d/player/player_crystal_avatar.png"
+
 const scenario: String = "res://scenes/scenarios/scenario.tscn"
 
 const main_menu: String = "res://scenes/screens/main_menu.tscn"
