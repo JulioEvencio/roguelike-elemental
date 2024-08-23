@@ -6,6 +6,8 @@ const scenario_controller: String = "res://scenes/controllers/scenario_controlle
 const player_fire: String = "res://scenes/actors/player/player_fire.tscn"
 const player_wind: String = "res://scenes/actors/player/player_wind.tscn"
 const player_water: String = "res://scenes/actors/player/player_water.tscn"
+const player_metal: String = "res://scenes/actors/player/player_metal.tscn"
+
 const scenario: String = "res://scenes/scenarios/scenario.tscn"
 
 const main_menu: String = "res://scenes/screens/main_menu.tscn"
