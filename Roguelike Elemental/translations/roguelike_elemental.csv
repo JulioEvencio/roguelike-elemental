@@ -33,3 +33,7 @@ $_CHOOSE_CHARACTER,Choose the character,Escolha o personagem,Elige el personaje
 $_CHOOSE,Choose,Escolher,Elegir
 $_RESTART,Restart,Reiniciar,Reanudar
 $_GAME_OVER,Game Over,Game Over,Game Over
+$_MASTER_FIRE,Master of fire,Mestre do fogo,Maestro del fuego
+$_MASTER_WATER,Master of water,Mestre da água,Maestro del agua
+$_MASTER_WIND,Master of wind,Mestre do vento,Maestro del viento
+$_MASTER_METAL,Master of metal,Mestre do metal,Maestro del metal

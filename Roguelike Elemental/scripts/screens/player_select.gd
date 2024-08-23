@@ -8,25 +8,25 @@ var _player_options: Array[Dictionary] = [
 	{
 		"icon": SceneController.player_fire_avatar,
 		"name": "Ignis",
-		"description": "Fire Attack",
+		"description": "$_MASTER_FIRE",
 		"scene": SceneController.player_fire
 	},
 	{
 		"icon": SceneController.player_water_avatar,
 		"name": "Aqua",
-		"description": "Water Attack",
+		"description": "$_MASTER_WATER",
 		"scene": SceneController.player_water
 	},
 	{
 		"icon": SceneController.player_wind_avatar,
 		"name": "Ventuso",
-		"description": "Wind Attack",
+		"description": "$_MASTER_WIND",
 		"scene": SceneController.player_wind
 	},
 	{
 		"icon": SceneController.player_metal_avatar,
 		"name": "Metalia",
-		"description": "Metal Attack",
+		"description": "$_MASTER_METAL",
 		"scene": SceneController.player_metal
 	}
 ]
