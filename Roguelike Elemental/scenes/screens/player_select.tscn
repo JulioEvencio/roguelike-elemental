@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_36q6o")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Filter" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LabelTitleDefault" parent="." instance=ExtResource("2_ywrq4")]
+[node name="Title" parent="." instance=ExtResource("2_ywrq4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -100,8 +100,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player Fire"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Describe" parent="HBoxContainer/Option01/TextureRect" instance=ExtResource("3_46s6r")]
+[node name="Description" parent="HBoxContainer/Option01/TextureRect" instance=ExtResource("3_46s6r")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -116,6 +118,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Desc"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Option02" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(530, 550)
@@ -165,8 +169,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player Water"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Describe" parent="HBoxContainer/Option02/TextureRect" instance=ExtResource("3_46s6r")]
+[node name="Description" parent="HBoxContainer/Option02/TextureRect" instance=ExtResource("3_46s6r")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -181,6 +187,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Desc"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Option03" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(530, 550)
@@ -230,8 +238,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player Wind"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Describe" parent="HBoxContainer/Option03/TextureRect" instance=ExtResource("3_46s6r")]
+[node name="Description" parent="HBoxContainer/Option03/TextureRect" instance=ExtResource("3_46s6r")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -246,8 +256,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Desc"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ButtonDefault" parent="." instance=ExtResource("6_ba6k5")]
+[node name="Choose" parent="." instance=ExtResource("6_ba6k5")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -262,4 +274,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "$_CHOOSE"
 
-[connection signal="pressed" from="ButtonDefault" to="." method="_on_button_default_pressed"]
+[connection signal="pressed" from="Choose" to="." method="_on_choose_pressed"]

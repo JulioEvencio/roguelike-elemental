@@ -62,15 +62,8 @@ func _on_pause_main_menu() -> void:
 func _on_pause_exit() -> void:
 	Transition.start(func(): _exit())
 
-func _on_player_select_player_selected(player_name: String) -> void:
-	match player_name:
-		"Player Fire":
-			_player = load(SceneController.player_fire).instantiate()
-		"Player Water":
-			_player = load(SceneController.player_water).instantiate()
-		"Player Wind":
-			_player = load(SceneController.player_wind).instantiate()
-	
+func _on_player_select_player_selected(player_scene_name: String) -> void:
+	_player = load(player_scene_name).instantiate()
 	_player.connect("is_dead", _game_over)
 	
 	Transition.start(func(): _setup_controller())
