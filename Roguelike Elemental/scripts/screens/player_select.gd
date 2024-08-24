@@ -34,6 +34,12 @@ var _player_options: Array[Dictionary] = [
 		"name": "Crystallum",
 		"description": "$_MASTER_CRYSTAL",
 		"scene": SceneController.player_crystal
+	},
+	{
+		"icon": SceneController.player_ground_avatar,
+		"name": "Humus",
+		"description": "$_MASTER_GROUND",
+		"scene": SceneController.player_ground
 	}
 ]
 
