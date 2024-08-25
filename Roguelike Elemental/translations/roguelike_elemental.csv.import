@@ -2,14 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://cftn5uludrdwd"
+uid="uid://ca66owjj4no7t"
 
 [deps]
 
-files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation"]
+files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation", "res://translations/roguelike_elemental.zh.translation"]
 
 source_file="res://translations/roguelike_elemental.csv"
-dest_files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation"]
+dest_files=["res://translations/roguelike_elemental.en.translation", "res://translations/roguelike_elemental.pt.translation", "res://translations/roguelike_elemental.es.translation", "res://translations/roguelike_elemental.zh.translation"]
 
 [params]
 

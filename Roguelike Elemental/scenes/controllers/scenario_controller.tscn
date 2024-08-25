@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpsit8ymkg31v"]
+[gd_scene load_steps=7 format=3 uid="uid://cpsit8ymkg31v"]
 
 [ext_resource type="Script" path="res://scripts/controllers/scenario_controller.gd" id="1_72je2"]
 [ext_resource type="PackedScene" uid="uid://ysinj74rhda8" path="res://scenes/screens/pause.tscn" id="2_8hsec"]
 [ext_resource type="PackedScene" uid="uid://cu73lrcw15nxk" path="res://scenes/actors/player/hud_player.tscn" id="3_wwrqg"]
 [ext_resource type="PackedScene" uid="uid://dwj4jpab7xioc" path="res://scenes/screens/player_select.tscn" id="4_n5412"]
 [ext_resource type="PackedScene" uid="uid://bjqx1lkohsg5e" path="res://scenes/screens/game_over.tscn" id="5_hsnkv"]
+[ext_resource type="PackedScene" uid="uid://b5xmiskwg54xf" path="res://scenes/screens/tutorial.tscn" id="6_1ks0j"]
 
 [node name="ScenarioController" type="Node"]
 process_mode = 3
@@ -19,6 +20,9 @@ script = ExtResource("1_72je2")
 [node name="Pause" parent="HUD" instance=ExtResource("2_8hsec")]
 visible = false
 
+[node name="Tutorial" parent="HUD" instance=ExtResource("6_1ks0j")]
+visible = false
+
 [node name="GameOver" parent="HUD" instance=ExtResource("5_hsnkv")]
 visible = false
 
@@ -29,6 +33,8 @@ process_mode = 1
 [connection signal="exit" from="HUD/Pause" to="." method="_on_pause_exit"]
 [connection signal="main_menu" from="HUD/Pause" to="." method="_on_pause_main_menu"]
 [connection signal="resume" from="HUD/Pause" to="." method="_on_pause_resume"]
+[connection signal="tutorial" from="HUD/Pause" to="." method="_on_pause_tutorial"]
+[connection signal="tutorial_close" from="HUD/Tutorial" to="." method="_on_tutorial_tutorial_close"]
 [connection signal="exit" from="HUD/GameOver" to="." method="_on_game_over_exit"]
 [connection signal="main_menu" from="HUD/GameOver" to="." method="_on_game_over_main_menu"]
 [connection signal="restart" from="HUD/GameOver" to="." method="_on_game_over_restart"]

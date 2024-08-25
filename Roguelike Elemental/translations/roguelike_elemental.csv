@@ -1,9 +1,9 @@
-,en,pt,es
-$_START,Start,Jogar,Jugar
-$_SETTINGS,Settings,Configurações,Ajustes
-$_CREDITS,Credits,Créditos,Créditos
-$_EXIT,Exit,Sair,Salir
-$_BACK,Back,Voltar,Volver
+,en,pt,es,zh
+$_START,Start,Jogar,Jugar,开始
+$_SETTINGS,Settings,Configurações,Ajustes,设置
+$_CREDITS,Credits,Créditos,Créditos,致谢
+$_EXIT,Exit,Sair,Salir,出口
+$_BACK,Back,Voltar,Volver,后退
 $_CREDITS_INFO,"Developed by Júlio Igreja (JulioEvencio - GitHub)
 
 Interface:
@@ -22,20 +22,34 @@ interfaz:
 Mounir Tohami (itch.io)
 
 Músicas:
-Eldritch Grim (Open Game Art)"
-$_LANGUAGE,Language:,Idioma:,Idioma:
-$_MUSIC,Music: ,Música: ,Música: 
-$_SFX,SFX: ,SFX: ,SFX: 
-$_PAUSE,Pause,Pause,Pause
-$_RESUME,Resume,Retomar,Reanudar
-$_MAIN_MENU,Main Menu,Menu Principal,Menú Principal
-$_CHOOSE_CHARACTER,Choose the character,Escolha o personagem,Elige el personaje
-$_CHOOSE,Choose,Escolher,Elegir
-$_RESTART,Restart,Reiniciar,Reanudar
-$_GAME_OVER,Game Over,Game Over,Game Over
-$_MASTER_FIRE,Master of fire,Mestre do fogo,Maestro del fuego
-$_MASTER_WATER,Master of water,Mestre da água,Maestro del agua
-$_MASTER_WIND,Master of wind,Mestre do vento,Maestro del viento
-$_MASTER_METAL,Master of metal,Mestre do metal,Maestro del metal
-$_MASTER_CRYSTAL,Master of crystal,Mestre do cristal,Maestro del cristal
-$_MASTER_GROUND,Master of ground,Mestre da terra,Maestro del tierra
+Eldritch Grim (Open Game Art)","“由 Júlio Igreja (JulioEvencio - GitHub) 开发
+
+界面：
+Mounir Tohami (itch.io)
+
+音乐：
+Eldritch Grim (Open Game Art)”"
+$_LANGUAGE,Language:,Idioma:,Idioma:,语言：
+$_MUSIC,Music: ,Música: ,Música: ,音乐：
+$_SFX,SFX: ,SFX: ,SFX: ,音效：
+$_PAUSE,Pause,Pause,Pause,暂停
+$_RESUME,Resume,Retomar,Reanudar,恢复
+$_MAIN_MENU,Main Menu,Menu Principal,Menú Principal,主菜单
+$_CHOOSE_CHARACTER,Choose the character,Escolha o personagem,Elige el personaje,选择角色
+$_CHOOSE,Choose,Escolher,Elegir,选择
+$_RESTART,Restart,Reiniciar,Reanudar,重启
+$_GAME_OVER,Game Over,Game Over,Game Over,游戏结束
+$_MASTER_FIRE,Master of fire,Mestre do fogo,Maestro del fuego,火之主
+$_MASTER_WATER,Master of water,Mestre da água,Maestro del agua,水之主宰
+$_MASTER_WIND,Master of wind,Mestre do vento,Maestro del viento,风之主宰
+$_MASTER_METAL,Master of metal,Mestre do metal,Maestro del metal,金属大师
+$_MASTER_CRYSTAL,Master of crystal,Mestre do cristal,Maestro del cristal,水晶大师
+$_MASTER_GROUND,Master of ground,Mestre da terra,Maestro del tierra,地面大师
+$_TUTORIAL,Tutorial,Tutorial,Tutorial,教程
+$_TUTORIAL_PAUSE,Pause,Pause,Pause,暂停
+$_TUTORIAL_RUN,Run,Correr,Correr,跑步
+$_TUTORIAL_JUMP,Jump,Pular,Saltar,跳
+$_TUTORIAL_ATTACK_01,Basic attack,Ataque básico,Ataque básico,基本攻击
+$_TUTORIAL_ATTACK_02,Skill 1,Habilidade 1,Habilidad 1,技能 1
+$_TUTORIAL_ATTACK_03,Skill 2,Habilidade 2,Habilidad 2,技能 2
+$_TUTORIAL_ATTACK_SPECIAL,Special attack,Ataque especial,Ataque especial,特殊攻击

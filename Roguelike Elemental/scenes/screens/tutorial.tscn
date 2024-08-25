@@ -1,0 +1,222 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5xmiskwg54xf"]
+
+[ext_resource type="Script" path="res://scripts/screens/tutorial.gd" id="1_6pqhe"]
+[ext_resource type="PackedScene" uid="uid://tv7ha8ik8dmq" path="res://scenes/gui/default/label_title_default.tscn" id="1_angyx"]
+[ext_resource type="Texture2D" uid="uid://cf4iyv8jjfkur" path="res://assets/2d/gui/key_arrow_left.png" id="2_cek0p"]
+[ext_resource type="PackedScene" uid="uid://b6rwglmsb83n0" path="res://scenes/gui/default/label_default.tscn" id="2_vkgv4"]
+[ext_resource type="Texture2D" uid="uid://bgwxasp85tkr5" path="res://assets/2d/gui/key_arrow_right.png" id="4_nttbc"]
+[ext_resource type="Texture2D" uid="uid://b4n07auwb3mt0" path="res://assets/2d/gui/key_z.png" id="5_v0r4l"]
+[ext_resource type="Texture2D" uid="uid://c1u83jgp12au2" path="res://assets/2d/gui/key_escape.png" id="6_fi5k8"]
+[ext_resource type="Texture2D" uid="uid://dnhqtcm6o2ftf" path="res://assets/2d/gui/key_x.png" id="6_o51mh"]
+[ext_resource type="Texture2D" uid="uid://dle3bom6kxpgk" path="res://assets/2d/gui/key_arrow_down.png" id="7_c3t7v"]
+[ext_resource type="Texture2D" uid="uid://camaymtc3jm4c" path="res://assets/2d/gui/key_arrow_up.png" id="8_kafry"]
+[ext_resource type="PackedScene" uid="uid://cfun5jfkr0e74" path="res://scenes/gui/default/button_default.tscn" id="10_b4aoq"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6pqhe")
+
+[node name="Filter" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Title" parent="." instance=ExtResource("1_angyx")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -363.0
+offset_right = 363.0
+grow_horizontal = 2
+text = "$_TUTORIAL"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -861.0
+offset_top = -255.0
+offset_right = 861.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TutorialBasic" type="VBoxContainer" parent="VBoxContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TutorialPause" type="HBoxContainer" parent="VBoxContainer/Container/TutorialBasic"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyEscape" type="TextureRect" parent="VBoxContainer/Container/TutorialBasic/TutorialPause"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_fi5k8")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialBasic/TutorialPause" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_PAUSE"
+
+[node name="TutorialMove" type="HBoxContainer" parent="VBoxContainer/Container/TutorialBasic"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyArrowLeft" type="TextureRect" parent="VBoxContainer/Container/TutorialBasic/TutorialMove"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_cek0p")
+
+[node name="KeyArrowRight" type="TextureRect" parent="VBoxContainer/Container/TutorialBasic/TutorialMove"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_nttbc")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialBasic/TutorialMove" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_RUN"
+
+[node name="TutorialJump" type="HBoxContainer" parent="VBoxContainer/Container/TutorialBasic"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyJump" type="TextureRect" parent="VBoxContainer/Container/TutorialBasic/TutorialJump"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_v0r4l")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialBasic/TutorialJump" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_JUMP"
+
+[node name="Div" type="ColorRect" parent="VBoxContainer/Container"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TutorialAttacks" type="VBoxContainer" parent="VBoxContainer/Container"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TutorialAttack01" type="HBoxContainer" parent="VBoxContainer/Container/TutorialAttacks"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyAttack" type="TextureRect" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack01"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_o51mh")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack01" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_ATTACK_01"
+
+[node name="TutorialAttack02" type="HBoxContainer" parent="VBoxContainer/Container/TutorialAttacks"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyAttack" type="TextureRect" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack02"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_o51mh")
+
+[node name="LabelDefault" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack02" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "+"
+
+[node name="KeyArrowDown" type="TextureRect" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack02"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_c3t7v")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack02" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_ATTACK_02"
+
+[node name="TutorialAttack03" type="HBoxContainer" parent="VBoxContainer/Container/TutorialAttacks"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyAttack" type="TextureRect" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack03"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_o51mh")
+
+[node name="LabelDefault" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack03" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "+"
+
+[node name="KeyArrowUp" type="TextureRect" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack03"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_kafry")
+
+[node name="Info" parent="VBoxContainer/Container/TutorialAttacks/TutorialAttack03" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_ATTACK_03"
+
+[node name="TutorialAttackSpecial" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeyAttack" type="TextureRect" parent="VBoxContainer/TutorialAttackSpecial"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_o51mh")
+
+[node name="LabelDefault" parent="VBoxContainer/TutorialAttackSpecial" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "+"
+
+[node name="KeyArrowUp" type="TextureRect" parent="VBoxContainer/TutorialAttackSpecial"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_kafry")
+
+[node name="LabelDefault2" parent="VBoxContainer/TutorialAttackSpecial" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "+"
+
+[node name="KeyArrowDown" type="TextureRect" parent="VBoxContainer/TutorialAttackSpecial"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_c3t7v")
+
+[node name="Info" parent="VBoxContainer/TutorialAttackSpecial" instance=ExtResource("2_vkgv4")]
+layout_mode = 2
+text = "$_TUTORIAL_ATTACK_SPECIAL"
+
+[node name="Start" parent="." instance=ExtResource("10_b4aoq")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.5
+offset_top = -149.0
+offset_right = 149.5
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "$_START"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

@@ -52,6 +52,10 @@ alignment = 1
 layout_mode = 2
 text = "$_RESUME"
 
+[node name="Tutorial" parent="Filter/VBoxContainer" instance=ExtResource("4_n2i4n")]
+layout_mode = 2
+text = "$_TUTORIAL"
+
 [node name="MainMenu" parent="Filter/VBoxContainer" instance=ExtResource("4_n2i4n")]
 layout_mode = 2
 text = "$_MAIN_MENU"
@@ -61,5 +65,6 @@ layout_mode = 2
 text = "$_EXIT"
 
 [connection signal="pressed" from="Filter/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Filter/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Filter/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Filter/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
