@@ -11,3 +11,6 @@ func _logic_damage_attack_03() -> int:
 
 func _logic_damage_attack_special() -> int:
 	return 15 + int(float(status.damage) / 3)
+
+func _regeneration_hp() -> void:
+	status.hp_current += status.hp_regeneration if status.hp_regeneration > 0 else 1
