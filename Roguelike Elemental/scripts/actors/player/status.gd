@@ -21,7 +21,7 @@ var hp_current: int = hp_max:
 		
 		update_hp_current.emit(hp_current)
 
-var special_max: int = 60:
+var special_max: int = 100:
 	set(value):
 		special_max = value
 		update_special_max.emit(special_max)
@@ -35,21 +35,23 @@ var special_current: int = 0:
 		
 		update_special_current.emit(special_current)
 
+var special_regeneration: int = 1
+var cost_skill_02: int = 5
+var cost_skill_03: int = 10
+var cost_attack_special: int = 100
+
 var speed: float = 130
 var jump_velocity: float = -300.0
 var hp_regeneration: int = 0
 var damage: int = 1
+var damage_bonus: int = 0
 var defense: int = 1
-var critical_damage: int = 10
-var critical_chance: int = 0
-var reflect_damage: int = 0
+var critical_chance: int = 10
 var dodge_the_attack: int = 0
 var immunity: float = 1.0
 
 var passive_defense: bool = false
-var passive_immunity: bool = false
+var passive_critical: bool = false
 var passive_fire: bool = false
-var passive_time: bool = false
 var passive_lifesteal: bool = false
-var passive_attack_speed: bool = false
-var passive_control_immunity: bool = false
+var passive_dodge_the_attack: bool = false

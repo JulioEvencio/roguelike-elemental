@@ -6,6 +6,7 @@ var _player: Player = null
 var _flip: String = ""
 var _is_attacking: bool = false
 var _is_hit: bool = false
+var _is_burning: bool = false
 var _is_dead: bool = false
 
 var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,7 +16,9 @@ var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var _damage: int = 1
 
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
+@onready var _sprite: Sprite2D = get_node("Sprite2D")
 @onready var _raycast: RayCast2D = get_node("RayCast2D")
+@onready var _timer: Timer = get_node("Timer")
 
 func _physics_process(_delta: float) -> void:
 	if not _is_dead and not _is_hit:
@@ -35,6 +38,11 @@ func take_damage(damage: int) -> void:
 		_is_hit = true
 		_is_attacking = false
 		_animation.call_deferred("stop")
+		
+		if not _is_burning and _player.status.passive_fire:
+			_is_burning = true
+			_sprite.modulate = Color(1, 0.647, 0, 1)
+			_timer.start()
 
 func _attack() -> void:
 	if _raycast.is_colliding():
@@ -93,3 +101,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_attack_area_body_entered(player: Player) -> void:
 	player.take_damage(_damage, position.x)
+
+func _on_timer_timeout() -> void:
+	var damage_burning: int = int(float(_player.status.damage) / 10)
+	
+	if not _is_dead:
+		_hp -= damage_burning if damage_burning > 0 else 1
+		_is_hit = true
+		_is_attacking = false
+		_animation.call_deferred("stop")

@@ -57,6 +57,7 @@ func _attack() -> void:
 	if Input.is_action_just_pressed("attack"):
 		var up_arrow: bool = false
 		var down_arrow: bool = false
+		_attack_type = ""
 		
 		if Input.is_action_pressed("up_arrow"):
 			up_arrow = true
@@ -64,16 +65,32 @@ func _attack() -> void:
 		if Input.is_action_pressed("down_arrow"):
 			down_arrow = true
 		
-		if up_arrow and down_arrow:
+		if up_arrow and down_arrow and status.special_current >= status.cost_attack_special:
 			_attack_type = "attack_special"
-		elif up_arrow:
+			status.damage_bonus = _logic_damage_attack_special()
+			status.special_current -= status.cost_attack_special
+		elif up_arrow and not down_arrow and status.special_current >= status.cost_skill_03:
 			_attack_type = "attack_03"
-		elif down_arrow:
+			status.damage_bonus = _logic_damage_attack_03()
+			status.special_current -= status.cost_skill_03
+		elif not up_arrow and down_arrow and status.special_current >= status.cost_skill_02:
 			_attack_type = "attack_02"
-		else:
+			status.damage_bonus = _logic_damage_attack_02()
+			status.special_current -= status.cost_skill_02
+		elif not up_arrow and not down_arrow:
 			_attack_type = "attack_01"
+			status.damage_bonus = 0
 		
-		_is_attacking = true
+		_is_attacking = not _attack_type == ""
+
+func _logic_damage_attack_02() -> int:
+	return 0
+
+func _logic_damage_attack_03() -> int:
+	return 0
+
+func _logic_damage_attack_special() -> int:
+	return 0
 
 func _animate() -> void:
 	if _is_dead:
@@ -110,10 +127,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		is_dead.emit()
 
 func _on_special_timer_timeout() -> void:
-	status.special_current += 1
+	status.special_current += status.special_regeneration
 
 func _on_attack_area_body_entered(enemy: Enemy) -> void:
-	enemy.take_damage(status.damage)
+	var damage: int = status.damage + status.damage_bonus
+	var is_critico: bool = true if status.passive_critical else randi_range(0, 100) <= status.critical_chance
+	var damage_final: int = damage * 2 if is_critico else damage
+	
+	enemy.take_damage(damage_final)
 
 func _on_immune_timer_timeout() -> void:
 	_is_immune = false
