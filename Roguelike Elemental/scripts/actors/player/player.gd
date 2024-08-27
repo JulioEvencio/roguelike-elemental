@@ -35,6 +35,9 @@ func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 		_is_attacking = false
 		_is_flip = "" if position.x < _enemy_position_x else "_flip"
 		_is_hit = true
+		
+		if status.passive_special_regeneration:
+			status.special_current += 10
 
 func _move() -> void:
 	if is_on_floor():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://vsh7bib04pvb"]
+[gd_scene load_steps=28 format=3 uid="uid://vsh7bib04pvb"]
 
 [ext_resource type="PackedScene" uid="uid://clxc7fv5812du" path="res://scenes/actors/player/player.tscn" id="1_jfk0l"]
+[ext_resource type="Script" path="res://scripts/actors/player/player_water.gd" id="2_2v5b7"]
 [ext_resource type="Texture2D" uid="uid://vkvom2ghfe1w" path="res://assets/2d/player/player_water.png" id="2_e1ygv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eiw8"]
@@ -1455,6 +1456,7 @@ height = 36.0
 
 [node name="PlayerWater" instance=ExtResource("1_jfk0l")]
 position = Vector2(0, -63)
+script = ExtResource("2_2v5b7")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-1, 0)
