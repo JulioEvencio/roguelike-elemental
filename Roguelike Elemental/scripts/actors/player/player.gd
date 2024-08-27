@@ -29,7 +29,11 @@ func get_heart() -> Marker2D:
 	return _heart
 
 func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
-	if not _is_hit and not _is_immune:
+	var dodge_the_attack: bool = true if randi() % 2 != 0 else false
+	
+	if status.passive_dodge_the_attack and dodge_the_attack and not _is_immune:
+		_activate_immune()
+	elif not _is_hit and not _is_immune:
 		status.hp_current -= ceil(float(_enemy_damage) / 2) if status.passive_defense else _enemy_damage
 		
 		_is_attacking = false
@@ -38,6 +42,13 @@ func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 		
 		if status.passive_special_regeneration:
 			status.special_current += 10
+
+func _activate_immune() -> void:
+	_is_immune = true
+	_is_hit = false
+	_sprite.modulate.a = 0.5
+	_immune_timer.wait_time = status.immunity
+	_immune_timer.start()
 
 func _move() -> void:
 	if is_on_floor():
@@ -121,11 +132,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if status.hp_current <= 0:
 			_is_dead = true
 		else:
-			_is_immune = true
-			_is_hit = false
-			_sprite.modulate.a = 0.5
-			_immune_timer.wait_time = status.immunity
-			_immune_timer.start()
+			_activate_immune()
 	elif anim_name == "death" or anim_name == "death_flip":
 		is_dead.emit()
 

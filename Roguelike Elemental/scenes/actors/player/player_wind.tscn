@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://bahfqeu3it28a"]
+[gd_scene load_steps=28 format=3 uid="uid://bahfqeu3it28a"]
 
 [ext_resource type="PackedScene" uid="uid://clxc7fv5812du" path="res://scenes/actors/player/player.tscn" id="1_1fr64"]
+[ext_resource type="Script" path="res://scripts/actors/player/player_wind.gd" id="2_p6lrs"]
 [ext_resource type="Texture2D" uid="uid://bdwhkv2qt270f" path="res://assets/2d/player/player_wind.png" id="2_sfaw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvekb"]
@@ -1467,6 +1468,7 @@ height = 36.0
 
 [node name="PlayerWind" instance=ExtResource("1_1fr64")]
 position = Vector2(0, -63)
+script = ExtResource("2_p6lrs")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_sfaw1")
