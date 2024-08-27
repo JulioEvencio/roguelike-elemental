@@ -14,7 +14,7 @@ var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var _hp: int = 1
 @export var _speed: float = 30.0
 @export var _damage: int = 1
-@export var _defense: int = 10
+@export var _defense: float = 1.0
 
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
 @onready var _sprite: Sprite2D = get_node("Sprite2D")
@@ -35,7 +35,7 @@ func add_player(player: Player) -> void:
 
 func take_damage(damage: int) -> int:
 	if not _is_dead:
-		var damage_final: int = int(ceil(float(damage) / float(_defense)))
+		var damage_final: int = int(ceil(float(damage) / _defense))
 		
 		_hp -= damage_final
 		_is_hit = true
