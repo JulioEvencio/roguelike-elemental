@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddkb0342j35ga"]
+[gd_scene load_steps=28 format=3 uid="uid://ddkb0342j35ga"]
 
 [ext_resource type="PackedScene" uid="uid://clxc7fv5812du" path="res://scenes/actors/player/player.tscn" id="1_usntt"]
 [ext_resource type="Texture2D" uid="uid://sxxfy64dmc77" path="res://assets/2d/player/player_ground.png" id="2_6nu87"]
+[ext_resource type="Script" path="res://scripts/actors/player/player_ground.gd" id="2_8it2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjy2o"]
 size = Vector2(71, 24)
@@ -1454,6 +1455,7 @@ radius = 4.0
 height = 34.0
 
 [node name="PlayerGround" instance=ExtResource("1_usntt")]
+script = ExtResource("2_8it2x")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -57)

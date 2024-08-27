@@ -55,3 +55,4 @@ var passive_critical: bool = false
 var passive_fire: bool = false
 var passive_lifesteal: bool = false
 var passive_dodge_the_attack: bool = false
+var passive_special_regeneration: bool = false

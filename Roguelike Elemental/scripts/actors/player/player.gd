@@ -30,7 +30,7 @@ func get_heart() -> Marker2D:
 
 func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 	if not _is_hit and not _is_immune:
-		status.hp_current -= _enemy_damage
+		status.hp_current -= ceil(float(_enemy_damage) / 2) if status.passive_defense else _enemy_damage
 		
 		_is_attacking = false
 		_is_flip = "" if position.x < _enemy_position_x else "_flip"
