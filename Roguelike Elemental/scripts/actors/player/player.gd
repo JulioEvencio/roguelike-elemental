@@ -134,7 +134,11 @@ func _on_attack_area_body_entered(enemy: Enemy) -> void:
 	var is_critico: bool = true if status.passive_critical else randi_range(0, 100) <= status.critical_chance
 	var damage_final: int = damage * 2 if is_critico else damage
 	
-	enemy.take_damage(damage_final)
+	var damage_applied: int = enemy.take_damage(damage_final)
+	
+	if status.passive_lifesteal and damage_applied > 0:
+		var lifesteal: int = int(float(damage_applied) / 10)
+		status.hp_current += lifesteal if lifesteal > 0 else 1
 
 func _on_immune_timer_timeout() -> void:
 	_is_immune = false

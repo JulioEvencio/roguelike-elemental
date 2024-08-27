@@ -14,6 +14,7 @@ var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var _hp: int = 1
 @export var _speed: float = 30.0
 @export var _damage: int = 1
+@export var _defense: int = 10
 
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
 @onready var _sprite: Sprite2D = get_node("Sprite2D")
@@ -32,9 +33,11 @@ func _physics_process(_delta: float) -> void:
 func add_player(player: Player) -> void:
 	_player = player
 
-func take_damage(damage: int) -> void:
+func take_damage(damage: int) -> int:
 	if not _is_dead:
-		_hp -= damage
+		var damage_final: int = int(ceil(float(damage) / float(_defense)))
+		
+		_hp -= damage_final
 		_is_hit = true
 		_is_attacking = false
 		_animation.call_deferred("stop")
@@ -43,6 +46,10 @@ func take_damage(damage: int) -> void:
 			_is_burning = true
 			_sprite.modulate = Color(1, 0.647, 0, 1)
 			_timer.start()
+		
+		return damage_final
+	
+	return 0
 
 func _attack() -> void:
 	if _raycast.is_colliding():
