@@ -34,7 +34,11 @@ func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 	if status.passive_dodge_the_attack and dodge_the_attack and not _is_immune:
 		_activate_immune()
 	elif not _is_hit and not _is_immune:
-		status.hp_current -= ceil(float(_enemy_damage) / 2) if status.passive_defense else _enemy_damage
+		var new_damage: int = ceil(float(_enemy_damage) / 2) if status.passive_defense else _enemy_damage
+		var defense: int = randi_range(0, status.defense)
+		var damage_final: int = new_damage - defense
+		
+		status.hp_current -= damage_final if damage_final > 0 else 1
 		
 		_is_attacking = false
 		_is_flip = "" if position.x < _enemy_position_x else "_flip"
@@ -136,9 +140,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "death" or anim_name == "death_flip":
 		is_dead.emit()
 
-func _on_special_timer_timeout() -> void:
-	status.special_current += status.special_regeneration
-
 func _on_attack_area_body_entered(enemy: Enemy) -> void:
 	var damage: int = status.damage + status.damage_bonus
 	var is_critico: bool = true if status.passive_critical else randi_range(0, 100) <= status.critical_chance
@@ -153,3 +154,7 @@ func _on_attack_area_body_entered(enemy: Enemy) -> void:
 func _on_immune_timer_timeout() -> void:
 	_is_immune = false
 	_sprite.modulate.a = 1.0
+
+func _on_timer_timeout() -> void:
+	status.hp_current += status.hp_regeneration
+	status.special_current += status.special_regeneration
