@@ -1,5 +1,7 @@
 class_name Scenario extends Node2D
 
+signal wave_clean
+
 var _waves_current: int = 1
 var _amount_enemies_current: int = 0
 
@@ -43,6 +45,8 @@ func _waves_logic() -> void:
 	if _amount_enemies_current < 1:
 		_waves_current += 1
 		_setup_enemies()
+		
+		wave_clean.emit()
 	
 	_waves_info.text = "Waves: " + str(_waves_current)
 

@@ -53,3 +53,13 @@ $_TUTORIAL_ATTACK_01,Basic attack,Ataque básico,Ataque básico,基本攻击
 $_TUTORIAL_ATTACK_02,Skill 1,Habilidade 1,Habilidad 1,技能 1
 $_TUTORIAL_ATTACK_03,Skill 2,Habilidade 2,Habilidad 2,技能 2
 $_TUTORIAL_ATTACK_SPECIAL,Special attack,Ataque especial,Ataque especial,特殊攻击
+$_CHOOSE_SKILL,Choose skill,Escolha a habilidade,Elige una habilidad,选择技能
+$_SKILL_IMMUNITY,Increases immunity by 0.1 seconds,Aumenta a imunidade em 0.1 segundos,"Aumenta la inmunidad en 0,1 segundos.",增加免疫力0.1秒
+$_SKILL_CRITICAL_CHANCE,Increases critical chance by 1 percent,Aumenta a chance de critico em 1 por cento,Aumenta la probabilidad de golpe crítico en un 1 por ciento,
+$_SKILL_DEFENSE,Increases defense by 1,Aumenta a defesa em 1,Aumenta la defensa en 1,
+$_SKILL_DAMAGE,Increases damage by 1,Aumenta o dano em 1,Aumenta el daño en 1,
+$_SKILL_HP_REGENERATION,Increases HP regeneration by 1,Aumenta a regeneração de HP em 1,Aumenta la regeneración de HP en 1,
+$_SKILL_SPEED,Increases movement speed by 5,Aumenta a velocidade de movimento em 5,Aumenta la velocidad de movimiento en 5,
+$_SKILL_JUMP_VELOCITY,Increases jump strength by 5,Aumenta a força do pulo em 5,Aumenta la fuerza del salto en 5,
+$_SKILL_SPECIAL_REGENERATION,Increases mana regeneration by 1,Aumenta a regeneração de mana em 1,Aumenta la regeneración de maná en 1,
+$_SKILL_HP_MAX,Increases maximum health by 5,Aumenta a vida máxima em 5,Aumenta la salud máxima en 5,

@@ -53,7 +53,7 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="Option01" type="ColorRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(530, 550)
+custom_minimum_size = Vector2(530, 530)
 layout_mode = 2
 color = Color(0.564706, 0.882353, 0.0705882, 1)
 
@@ -122,7 +122,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Option02" type="ColorRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(530, 550)
+custom_minimum_size = Vector2(530, 530)
 layout_mode = 2
 color = Color(0.564232, 0.882372, 0.0704393, 1)
 
@@ -191,7 +191,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Option03" type="ColorRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(530, 550)
+custom_minimum_size = Vector2(530, 530)
 layout_mode = 2
 color = Color(0.564232, 0.882372, 0.0704393, 1)
 

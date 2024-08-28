@@ -2,9 +2,12 @@ class_name ScenarioController extends Node
 
 var _player: Player = null
 var _is_show_tutorial: bool = false
+var _is_show_skill_select: bool = false
+var _is_show_player_select: bool = true
 var _is_game_over: bool = false
 
 @onready var _pause_screen: Pause = get_node("HUD/Pause")
+@onready var _skill_select: SkillSelect = get_node("HUD/SkillSelect")
 @onready var _tutorial_screen: Tutorial = get_node("HUD/Tutorial")
 @onready var _game_over_screen: GameOver = get_node("HUD/GameOver")
 @onready var _scenario: Node = get_node("Scenario")
@@ -15,11 +18,14 @@ func _physics_process(_delta: float) -> void:
 	_toggle_pause()
 
 func _setup_controller() -> void:
+	_is_show_player_select = false
+	
 	var player_select: PlayerSelect = get_node("HUD/PlayerSelect")
 	var hud_player: HUDPlayer = get_node("HUD/HUDPlayer")
 	
 	player_select.queue_free()
 	hud_player.add_status(_player.status)
+	_skill_select.add_status(_player.status)
 	
 	_update_scenario(_scenario_scene)
 	_show_tutorial()
@@ -31,7 +37,7 @@ func _show_tutorial() -> void:
 	_tutorial_screen.visible = true
 
 func _toggle_pause() -> void:
-	if Input.is_action_just_pressed("pause") and not _is_show_tutorial and not _is_game_over:
+	if Input.is_action_just_pressed("pause") and not _is_show_tutorial and not _is_show_skill_select and not _is_show_player_select and not _is_game_over:
 		get_tree().paused = not get_tree().paused
 		_pause_screen.visible = get_tree().paused
 
@@ -42,7 +48,14 @@ func _update_scenario(scenario: PackedScene) -> void:
 	var scenario_instantiate: Scenario = scenario.instantiate()
 	
 	scenario_instantiate.add_player(_player)
+	scenario_instantiate.connect("wave_clean", _wave_clean)
+	
 	_scenario.add_child(scenario_instantiate)
+
+func _wave_clean() -> void:
+	_skill_select.visible = true
+	_is_show_skill_select = true
+	get_tree().paused = true
 
 func _restart() -> void:
 	get_tree().paused = false
@@ -92,4 +105,9 @@ func _on_game_over_exit() -> void:
 func _on_tutorial_tutorial_close() -> void:
 	_tutorial_screen.visible = false
 	_is_show_tutorial = false
+	get_tree().paused = false
+
+func _on_skill_select_skill_selected() -> void:
+	_skill_select.visible = false
+	_is_show_skill_select = false
 	get_tree().paused = false

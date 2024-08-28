@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpsit8ymkg31v"]
+[gd_scene load_steps=8 format=3 uid="uid://cpsit8ymkg31v"]
 
 [ext_resource type="Script" path="res://scripts/controllers/scenario_controller.gd" id="1_72je2"]
 [ext_resource type="PackedScene" uid="uid://ysinj74rhda8" path="res://scenes/screens/pause.tscn" id="2_8hsec"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwj4jpab7xioc" path="res://scenes/screens/player_select.tscn" id="4_n5412"]
 [ext_resource type="PackedScene" uid="uid://bjqx1lkohsg5e" path="res://scenes/screens/game_over.tscn" id="5_hsnkv"]
 [ext_resource type="PackedScene" uid="uid://b5xmiskwg54xf" path="res://scenes/screens/tutorial.tscn" id="6_1ks0j"]
+[ext_resource type="PackedScene" uid="uid://dy6eemmkk6w4f" path="res://scenes/screens/skill_select.tscn" id="7_xniyw"]
 
 [node name="ScenarioController" type="Node"]
 process_mode = 3
@@ -18,6 +19,9 @@ script = ExtResource("1_72je2")
 [node name="PlayerSelect" parent="HUD" instance=ExtResource("4_n5412")]
 
 [node name="Pause" parent="HUD" instance=ExtResource("2_8hsec")]
+visible = false
+
+[node name="SkillSelect" parent="HUD" instance=ExtResource("7_xniyw")]
 visible = false
 
 [node name="Tutorial" parent="HUD" instance=ExtResource("6_1ks0j")]
@@ -34,6 +38,7 @@ process_mode = 1
 [connection signal="main_menu" from="HUD/Pause" to="." method="_on_pause_main_menu"]
 [connection signal="resume" from="HUD/Pause" to="." method="_on_pause_resume"]
 [connection signal="tutorial" from="HUD/Pause" to="." method="_on_pause_tutorial"]
+[connection signal="skill_selected" from="HUD/SkillSelect" to="." method="_on_skill_select_skill_selected"]
 [connection signal="tutorial_close" from="HUD/Tutorial" to="." method="_on_tutorial_tutorial_close"]
 [connection signal="exit" from="HUD/GameOver" to="." method="_on_game_over_exit"]
 [connection signal="main_menu" from="HUD/GameOver" to="." method="_on_game_over_main_menu"]

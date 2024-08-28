@@ -1,0 +1,187 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6eemmkk6w4f"]
+
+[ext_resource type="PackedScene" uid="uid://tv7ha8ik8dmq" path="res://scenes/gui/default/label_title_default.tscn" id="1_7mdc5"]
+[ext_resource type="Script" path="res://scripts/screens/skill_select.gd" id="1_moyuo"]
+[ext_resource type="Texture2D" uid="uid://dyqj6u45t43te" path="res://assets/2d/gui/card.png" id="2_o53i0"]
+[ext_resource type="PackedScene" uid="uid://b6rwglmsb83n0" path="res://scenes/gui/default/label_default.tscn" id="3_6v57i"]
+[ext_resource type="PackedScene" uid="uid://cfun5jfkr0e74" path="res://scenes/gui/default/button_default.tscn" id="4_ln7w8"]
+
+[node name="SkillSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_moyuo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Title" parent="." instance=ExtResource("1_7mdc5")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -504.5
+offset_right = 504.5
+grow_horizontal = 2
+text = "$_CHOOSE_SKILL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Option01" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(530, 530)
+layout_mode = 2
+color = Color(0.564706, 0.882353, 0.0705882, 1)
+
+[node name="Card" type="TextureRect" parent="HBoxContainer/Option01"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o53i0")
+
+[node name="Info" parent="HBoxContainer/Option01/Card" instance=ExtResource("3_6v57i")]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -34.5
+offset_right = 160.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Option02" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(530, 530)
+layout_mode = 2
+color = Color(0.564706, 0.882353, 0.0705882, 1)
+
+[node name="Card" type="TextureRect" parent="HBoxContainer/Option02"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o53i0")
+
+[node name="Info" parent="HBoxContainer/Option02/Card" instance=ExtResource("3_6v57i")]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -34.5
+offset_right = 160.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Option03" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(530, 530)
+layout_mode = 2
+color = Color(0.564706, 0.882353, 0.0705882, 1)
+
+[node name="Card" type="TextureRect" parent="HBoxContainer/Option03"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o53i0")
+
+[node name="Info" parent="HBoxContainer/Option03/Card" instance=ExtResource("3_6v57i")]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -34.5
+offset_right = 160.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Choose" parent="." instance=ExtResource("4_ln7w8")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.5
+offset_top = -149.0
+offset_right = 176.5
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "$_CHOOSE"
+
+[connection signal="pressed" from="Choose" to="." method="_on_choose_pressed"]

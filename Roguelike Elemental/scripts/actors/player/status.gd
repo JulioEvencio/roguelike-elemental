@@ -47,7 +47,6 @@ var damage: int = 1
 var damage_bonus: int = 0
 var defense: int = 1
 var critical_chance: int = 10
-var dodge_the_attack: int = 0
 var immunity: float = 1.0
 
 var passive_defense: bool = false
