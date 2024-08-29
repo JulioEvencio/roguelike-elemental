@@ -15,7 +15,7 @@ script = ExtResource("1_ok5b5")
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 116
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 disabled = true

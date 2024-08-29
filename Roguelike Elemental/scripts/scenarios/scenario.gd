@@ -10,6 +10,7 @@ var _player: Player
 @onready var _waves_info: Label = get_node("HUD/WavesInfo")
 @onready var _enemies: Node = get_node("Enemies")
 @onready var _skeleton_scene: PackedScene = preload(SceneController.skeleton)
+@onready var _bringer_of_death: PackedScene = preload(SceneController.bringer_of_death)
 
 func _ready() -> void:
 	_setup_camera()
@@ -50,20 +51,29 @@ func _waves_logic() -> void:
 	
 	_waves_info.text = "Waves: " + str(_waves_current)
 
+func _add_enemy(enemy: PackedScene, enemy_position: Vector2) -> void:
+	var enemy_instantiate: Enemy = enemy.instantiate()
+	
+	enemy_instantiate.position = enemy_position
+	enemy_instantiate.add_player(_player)
+	enemy_instantiate.connect("is_dead", _waves_logic)
+	
+	_enemies.add_child(enemy_instantiate)
+	_amount_enemies_current += 1
+
 func _setup_enemies() -> void:
 	var enemy_number: int = randi_range(_waves_current, _waves_current + 5)
 	_amount_enemies_current = 0
 	
 	for i: int in enemy_number:
-		var enemy_instantiate: Enemy = _skeleton_scene.instantiate()
+		var enemy_position: Vector2
 		
 		if i % 2 == 0:
-			enemy_instantiate.position = Vector2(700, 200 + -35 * i)
+			enemy_position = Vector2(700, 200 + -35 * i)
 		else:
-			enemy_instantiate.position = Vector2(-50, 200 + -35 * i)
+			enemy_position = Vector2(-50, 200 + -35 * i)
 		
-		enemy_instantiate.add_player(_player)
-		enemy_instantiate.connect("is_dead", _waves_logic)
-		
-		_enemies.add_child(enemy_instantiate)
-		_amount_enemies_current += 1
+		_add_enemy(_skeleton_scene, enemy_position)
+	
+	if _waves_current >= 5:
+		_add_enemy(_bringer_of_death, Vector2(700, 200))
