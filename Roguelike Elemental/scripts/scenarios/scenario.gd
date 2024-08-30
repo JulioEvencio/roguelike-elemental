@@ -11,6 +11,7 @@ var _player: Player
 @onready var _enemies: Node = get_node("Enemies")
 @onready var _skeleton_scene: PackedScene = preload(SceneController.skeleton)
 @onready var _bringer_of_death: PackedScene = preload(SceneController.bringer_of_death)
+@onready var _night_borne: PackedScene = preload(SceneController.night_borne)
 
 func _ready() -> void:
 	_setup_camera()
@@ -66,6 +67,7 @@ func _setup_enemies() -> void:
 	_amount_enemies_current = 0
 	
 	for i: int in enemy_number:
+		break
 		var enemy_position: Vector2
 		
 		if i % 2 == 0:
@@ -75,5 +77,8 @@ func _setup_enemies() -> void:
 		
 		_add_enemy(_skeleton_scene, enemy_position)
 	
-	if _waves_current >= 5:
+	if _waves_current >= 5 and false:
 		_add_enemy(_bringer_of_death, Vector2(700, 200))
+	
+	if _waves_current >= 5 or true:
+		_add_enemy(_night_borne, Vector2(-50, 200))

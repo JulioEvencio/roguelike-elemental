@@ -92,7 +92,7 @@ locale/translations=PackedStringArray("res://translations/roguelike_elemental.en
 2d_physics/layer_4="limits"
 2d_physics/layer_5="enemies_02"
 2d_physics/layer_6="enemies_03"
-2d_physics/layer_7="enemies_boss"
+2d_physics/layer_7="enemies_04"
 
 [physics]
 
