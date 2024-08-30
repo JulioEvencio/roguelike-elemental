@@ -15,6 +15,7 @@ var _is_dead: bool = false
 
 @onready var _sprite: Sprite2D = get_node("Sprite2D")
 @onready var _animation: AnimationPlayer = get_node("AnimationPlayer")
+@onready var _timer: Timer = get_node("Timer")
 @onready var _heart: Marker2D = get_node("Heart")
 @onready var _immune_timer: Timer = get_node("ImmuneTimer")
 
@@ -39,6 +40,9 @@ func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 		var damage_final: int = new_damage - defense
 		
 		status.hp_current -= damage_final if damage_final > 0 else 1
+		
+		if status.hp_current <= 0:
+			_timer.stop()
 		
 		_is_attacking = false
 		_is_flip = "" if position.x < _enemy_position_x else "_flip"
