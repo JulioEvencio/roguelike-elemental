@@ -12,7 +12,7 @@ var _is_game_over: bool = false
 @onready var _game_over_screen: GameOver = get_node("HUD/GameOver")
 @onready var _scenario: Node = get_node("Scenario")
 
-@onready var _scenario_scene: PackedScene = preload(SceneController.scenario)
+@onready var _scenario_scene: PackedScene = preload(SceneController.space_scenario)
 
 func _physics_process(_delta: float) -> void:
 	_toggle_pause()
