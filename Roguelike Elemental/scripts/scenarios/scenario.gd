@@ -1,6 +1,9 @@
 class_name Scenario extends Node2D
 
 signal wave_clean
+signal scenario_clean
+
+@export var _next_scenario: PackedScene = null
 
 var _waves_current: int = 1
 var _amount_enemies_current: int = 0
@@ -47,7 +50,11 @@ func _waves_logic() -> void:
 	
 	if _amount_enemies_current < 1:
 		_waves_current += 1
-		_setup_enemies()
+		
+		if _waves_current > 10 and not _next_scenario == null:
+			scenario_clean.emit(_next_scenario)
+		else:
+			_setup_enemies()
 		
 		wave_clean.emit()
 	
@@ -68,7 +75,6 @@ func _setup_enemies() -> void:
 	_amount_enemies_current = 0
 	
 	for i: int in enemy_number:
-		break
 		var enemy_position: Vector2
 		
 		if i % 2 == 0:
@@ -78,11 +84,11 @@ func _setup_enemies() -> void:
 		
 		_add_enemy(_skeleton_scene, enemy_position)
 	
-	if _waves_current >= 5 and false:
+	if _waves_current >= 5:
 		_add_enemy(_bringer_of_death, Vector2(700, 200))
 	
-	if _waves_current >= 5 or false:
+	if _waves_current >= 10:
 		_add_enemy(_night_borne, Vector2(-50, 200))
 	
-	if _waves_current >= 5 or true:
+	if _waves_current >= 15:
 		_add_enemy(_undead_executioner, Vector2(700, 200))

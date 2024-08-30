@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://bh5frogrl3p47"]
+[gd_scene load_steps=10 format=4 uid="uid://bh5frogrl3p47"]
 
 [ext_resource type="PackedScene" uid="uid://hxm1cqxubtgd" path="res://scenes/scenarios/scenario.tscn" id="1_ul7t0"]
+[ext_resource type="PackedScene" uid="uid://d0vcaf4iaebx" path="res://scenes/scenarios/space.tscn" id="2_dvehb"]
 [ext_resource type="Texture2D" uid="uid://darpchbm58dfn" path="res://assets/2d/backgrounds/background.png" id="2_ix6ks"]
 [ext_resource type="Texture2D" uid="uid://bt6csphbegrhb" path="res://assets/2d/tilemaps/salt.png" id="3_uh44h"]
 [ext_resource type="Texture2D" uid="uid://o0y1h1e40nuy" path="res://assets/2d/tilemaps/tiles.png" id="4_omnjh"]
@@ -134,6 +135,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_j0qg3")
 
 [node name="Earth" instance=ExtResource("1_ul7t0")]
+_next_scenario = ExtResource("2_dvehb")
 
 [node name="Background" parent="." index="2"]
 offset_right = 768.0
