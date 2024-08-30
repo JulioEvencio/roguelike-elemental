@@ -568,14 +568,8 @@ sources/0 = SubResource("TileSetAtlasSource_lh4dx")
 [node name="Space" instance=ExtResource("1_lxik1")]
 
 [node name="Background" parent="." index="2"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_right = 0.0
-anchor_bottom = 0.5
-offset_top = -512.0
 offset_right = 1024.0
-offset_bottom = 512.0
-grow_horizontal = 1
+offset_bottom = 1024.0
 texture = ExtResource("2_4lijs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap" index="0"]

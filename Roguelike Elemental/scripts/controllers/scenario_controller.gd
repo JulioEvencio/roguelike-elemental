@@ -6,13 +6,19 @@ var _is_show_skill_select: bool = false
 var _is_show_player_select: bool = true
 var _is_game_over: bool = false
 
+var _scenario_scene: PackedScene = null
+
 @onready var _pause_screen: Pause = get_node("HUD/Pause")
 @onready var _skill_select: SkillSelect = get_node("HUD/SkillSelect")
 @onready var _tutorial_screen: Tutorial = get_node("HUD/Tutorial")
 @onready var _game_over_screen: GameOver = get_node("HUD/GameOver")
 @onready var _scenario: Node = get_node("Scenario")
 
-@onready var _scenario_scene: PackedScene = preload(SceneController.space_scenario)
+@onready var _earth_scenario: PackedScene = preload(SceneController.earth_scenario)
+@onready var _space_scenario: PackedScene = preload(SceneController.space_scenario)
+
+func _ready() -> void:
+	_scenario_scene = _earth_scenario
 
 func _physics_process(_delta: float) -> void:
 	_toggle_pause()
