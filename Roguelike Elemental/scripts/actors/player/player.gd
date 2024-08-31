@@ -20,7 +20,7 @@ var _is_dead: bool = false
 @onready var _immune_timer: Timer = get_node("ImmuneTimer")
 
 func _physics_process(_delta: float) -> void:
-	if not _is_attacking and not _is_hit:
+	if not _is_attacking and not _is_hit and not _is_dead:
 		_move()
 		_attack()
 	
@@ -32,7 +32,7 @@ func get_heart() -> Marker2D:
 func take_damage(_enemy_damage: int, _enemy_position_x: float) -> void:
 	var dodge_the_attack: bool = true if randi() % 2 != 0 else false
 	
-	if status.passive_dodge_the_attack and dodge_the_attack and not _is_immune:
+	if status.passive_dodge_the_attack and not _is_dead and not _is_hit and dodge_the_attack and not _is_immune:
 		_activate_immune()
 	elif not _is_hit and not _is_immune:
 		var new_damage: int = ceil(float(_enemy_damage) / 2) if status.passive_defense else _enemy_damage
