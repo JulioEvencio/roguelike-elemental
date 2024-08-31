@@ -8,6 +8,7 @@ var _is_attacking: bool = false
 var _is_hit: bool = false
 var _is_burning: bool = false
 var _is_dead: bool = false
+var _can_move: bool = true
 
 var _gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -25,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 	if not _is_dead and not _is_hit:
 		_attack()
 	
-		if not _is_attacking:
+		if _can_move and not _is_attacking:
 			_move()
 	
 	_animate()
@@ -117,3 +118,11 @@ func _on_timer_timeout() -> void:
 		_is_hit = true
 		_is_attacking = false
 		_animation.call_deferred("stop")
+
+@warning_ignore("shadowed_variable")
+func _on_move_area_body_entered(_player: Player) -> void:
+	_can_move = false
+
+@warning_ignore("shadowed_variable")
+func _on_move_area_body_exited(_player: Player) -> void:
+	_can_move = true

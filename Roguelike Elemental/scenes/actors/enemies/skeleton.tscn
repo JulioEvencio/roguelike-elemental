@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ci3cpvaqxmc31"]
+[gd_scene load_steps=18 format=3 uid="uid://ci3cpvaqxmc31"]
 
 [ext_resource type="PackedScene" uid="uid://b274ja3kyfopr" path="res://scenes/actors/enemies/enemy.tscn" id="1_jcek0"]
 [ext_resource type="Texture2D" uid="uid://ckmncv32f2k7a" path="res://assets/2d/enemies/skeleton.png" id="2_h0pfx"]
@@ -647,6 +647,9 @@ height = 32.0
 radius = 12.0
 height = 38.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqr6g"]
+size = Vector2(12, 32)
+
 [node name="Skeleton" instance=ExtResource("1_jcek0")]
 z_index = 4
 position = Vector2(0, -16)
@@ -676,3 +679,6 @@ target_position = Vector2(30, 0)
 position = Vector2(13, -7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_y2ybl")
+
+[node name="CollisionShape2D" parent="MoveArea" index="0"]
+shape = SubResource("RectangleShape2D_yqr6g")

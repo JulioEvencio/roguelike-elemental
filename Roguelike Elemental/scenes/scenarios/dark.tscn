@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://3imcfhtd5kvl"]
+[gd_scene load_steps=4 format=3 uid="uid://3imcfhtd5kvl"]
 
 [ext_resource type="PackedScene" uid="uid://hxm1cqxubtgd" path="res://scenes/scenarios/scenario.tscn" id="1_w35h7"]
+[ext_resource type="Script" path="res://scripts/scenarios/dark.gd" id="2_ekbu8"]
 [ext_resource type="Texture2D" uid="uid://csrkjk57hq0af" path="res://assets/2d/backgrounds/dark_theme_background.png" id="2_ud5c7"]
 
 [node name="Dark" instance=ExtResource("1_w35h7")]
+script = ExtResource("2_ekbu8")
 
 [node name="Background" parent="." index="2"]
 offset_right = 1200.0
