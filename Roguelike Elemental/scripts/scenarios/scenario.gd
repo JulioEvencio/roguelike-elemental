@@ -51,7 +51,7 @@ func _waves_logic() -> void:
 	if _amount_enemies_current < 1:
 		_waves_current += 1
 		
-		if _waves_current > 10 and not _next_scenario == null:
+		if _waves_current > 2 and not _next_scenario == null:
 			scenario_clean.emit(_next_scenario)
 		else:
 			_setup_enemies()

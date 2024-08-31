@@ -21,7 +21,8 @@ const player_crystal_avatar: String = "res://assets/2d/player/player_crystal_ava
 const player_ground: String = "res://scenes/actors/player/player_ground.tscn"
 const player_ground_avatar: String = "res://assets/2d/player/player_ground_avatar.png"
 
-const earth_scenario: String = "res://scenes/scenarios/earth.tscn"
+const earth_scenario: String = "res://scenes/scenarios/dark.tscn"
+# const earth_scenario: String = "res://scenes/scenarios/earth.tscn"
 const space_scenario: String = "res://scenes/scenarios/space.tscn"
 
 const main_menu: String = "res://scenes/screens/main_menu.tscn"
