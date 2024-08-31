@@ -7,6 +7,9 @@ var _is_game_over: bool = false
 
 var _player: Player = null
 
+var _musics: Array[AudioStreamPlayer] = []
+var _music_current: int = 0
+
 @onready var _pause_screen: Pause = get_node("HUD/Pause")
 @onready var _skill_select: SkillSelect = get_node("HUD/SkillSelect")
 @onready var _tutorial_screen: Tutorial = get_node("HUD/Tutorial")
@@ -14,6 +17,14 @@ var _player: Player = null
 @onready var _scenario: Node = get_node("Scenario")
 
 @onready var _scenario_scene: PackedScene = preload(SceneController.earth_scenario)
+
+func _ready() -> void:
+	for music: AudioStreamPlayer in get_node("Musics").get_children():
+		music.connect("finished", _music_logic)
+		_musics.push_back(music)
+	
+	_musics.shuffle()
+	_musics[_music_current].play(0.0)
 
 func _physics_process(_delta: float) -> void:
 	_toggle_pause()
@@ -30,6 +41,14 @@ func _setup_controller() -> void:
 	
 	_update_scenario(_scenario_scene)
 	_show_tutorial()
+
+func _music_logic() -> void:
+	_music_current += 1
+	
+	if _music_current >= 4:
+		_music_current = 0
+	
+	_musics[_music_current].play(0.0)
 
 func _show_tutorial() -> void:
 	get_tree().paused = true

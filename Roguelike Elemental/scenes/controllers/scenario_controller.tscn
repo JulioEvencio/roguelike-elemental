@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpsit8ymkg31v"]
+[gd_scene load_steps=12 format=3 uid="uid://cpsit8ymkg31v"]
 
 [ext_resource type="Script" path="res://scripts/controllers/scenario_controller.gd" id="1_72je2"]
 [ext_resource type="PackedScene" uid="uid://ysinj74rhda8" path="res://scenes/screens/pause.tscn" id="2_8hsec"]
+[ext_resource type="AudioStream" uid="uid://d0ocxd145y0ua" path="res://assets/musics/scenarios/DavidKBD - 05 - Tchaikovsky - Danza de los cisnes - Concerto2.ogg" id="2_wa1dt"]
+[ext_resource type="AudioStream" uid="uid://ufbg4mtx7oda" path="res://assets/musics/scenarios/DavidKBD - 06 - Bach Brandenburg Concerto No. 3 in G Major BWV 1048 - Concerto2.ogg" id="3_7su7b"]
 [ext_resource type="PackedScene" uid="uid://cu73lrcw15nxk" path="res://scenes/actors/player/hud_player.tscn" id="3_wwrqg"]
 [ext_resource type="PackedScene" uid="uid://dwj4jpab7xioc" path="res://scenes/screens/player_select.tscn" id="4_n5412"]
+[ext_resource type="AudioStream" uid="uid://dah2w4y2d23xg" path="res://assets/musics/scenarios/DavidKBD - 07 - J.S. Bach - Prelude in C Major - Concerto2.ogg" id="4_q60yf"]
+[ext_resource type="AudioStream" uid="uid://d18avbuttguog" path="res://assets/musics/scenarios/DavidKBD - 08 - Beethoven - Moonlight Sonata (1st Movement) - Concerto2.ogg" id="5_bxhuu"]
 [ext_resource type="PackedScene" uid="uid://bjqx1lkohsg5e" path="res://scenes/screens/game_over.tscn" id="5_hsnkv"]
 [ext_resource type="PackedScene" uid="uid://b5xmiskwg54xf" path="res://scenes/screens/tutorial.tscn" id="6_1ks0j"]
 [ext_resource type="PackedScene" uid="uid://dy6eemmkk6w4f" path="res://scenes/screens/skill_select.tscn" id="7_xniyw"]
@@ -11,6 +15,24 @@
 [node name="ScenarioController" type="Node"]
 process_mode = 3
 script = ExtResource("1_72je2")
+
+[node name="Musics" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Musics"]
+stream = ExtResource("2_wa1dt")
+bus = &"music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Musics"]
+stream = ExtResource("3_7su7b")
+bus = &"music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Musics"]
+stream = ExtResource("4_q60yf")
+bus = &"music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="Musics"]
+stream = ExtResource("5_bxhuu")
+bus = &"music"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
